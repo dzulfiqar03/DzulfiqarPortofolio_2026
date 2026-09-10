@@ -70,6 +70,7 @@ export default function Tools() {
 
         const cards = Array.from(grid.querySelectorAll<HTMLElement>(".card-tools"));
         const timers: number[] = [];
+        const clickHandlers = new WeakMap<HTMLButtonElement, () => void>();
 
         cards.forEach((card) => {
             // animate ring in on load
@@ -108,7 +109,7 @@ export default function Tools() {
                 };
                 btn.addEventListener("click", onClick);
                 // stash for cleanup
-                (btn as any)._onClick = onClick;
+                clickHandlers.set(btn, onClick);
             }
         });
 
@@ -116,7 +117,7 @@ export default function Tools() {
             timers.forEach((t) => window.clearTimeout(t));
             cards.forEach((card) => {
                 const btn = card.querySelector<HTMLButtonElement>(".card-head");
-                const handler = (btn as any)?._onClick;
+                const handler = btn ? clickHandlers.get(btn) : undefined;
                 if (btn && handler) btn.removeEventListener("click", handler);
             });
         };

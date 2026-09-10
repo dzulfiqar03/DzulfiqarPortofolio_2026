@@ -39,13 +39,6 @@ function BriefcaseIcon({ className }: { className?: string }) {
     );
 }
 
-const typeIcon = (type: string) => {
-    const normalized = type.toLowerCase();
-    if (normalized.includes("organisation")) return UsersIcon;
-    if (normalized.includes("training")) return GraduationCapIcon;
-    return BriefcaseIcon;
-};
-
 function ExperienceTypeIcon({ type, className }: { type: string; className?: string }) {
     const normalized = type.toLowerCase();
 
