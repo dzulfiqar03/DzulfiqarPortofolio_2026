@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="https://cdn.lineicons.com/4.0/lineicons.css" />
+    <link rel="stylesheet" href="/vendor/viewerjs/viewer.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <title>Muhammad Dzulfiqar - Portofolio</title>
+    <title>my-portofolio</title>
+    <style>
+      html,
+      body {
+        margin: 0;
+        width: 100%;
+        height: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+
+    <script>
+      // Function to handle smooth scroll animation
+      function smoothScroll(target) {
+        const element = document.querySelector(target);
+        if (element) {
+          element.scrollIntoView({
+            behavior: "smooth",
+          });
+        }
+      }
+
+      function Scroll() {
+        var Scrolls = document.querySelectorAll(".reveal");
+
+        for (var i = 0; i < Scrolls.length; i++) {
+          var windowHeight = window.innerHeight;
+          var elementTop = Scrolls[i].getBoundingClientRect().top;
+          var elementVisible = 150;
+
+          if (elementTop < windowHeight - elementVisible) {
+            Scrolls[i].classList.add("active");
+          } else {
+            Scrolls[i].classList.remove("active");
+          }
+        }
+      }
+
+      window.addEventListener("scroll", Scroll);
+
+      // Attach click event listeners to the links
+      document.addEventListener("DOMContentLoaded", function () {
+        const links = document.querySelectorAll('a[href^="#"]');
+        links.forEach((link) => {
+          link.addEventListener("click", (event) => {
+            event.preventDefault(); // Prevent default link behavior
+            const target = event.currentTarget.getAttribute("href");
+            if (target) {
+              smoothScroll(target);
+            }
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

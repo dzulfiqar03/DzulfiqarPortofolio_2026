@@ -1,0 +1,61 @@
+export default function Navbar() {
+    return (
+        <>
+            <div className="w-full bg-slate-900/80 backdrop-blur-md border-b z-[100] fixed top-0 border-white/10 shadow-lg shadow-black/20">
+                <div className="navbar max-w-6xl mx-auto px-6    transition-colors duration-300">
+                    <div className="flex-1">
+                        <a href="/" className="btn btn-ghost normal-case m-0 px-0 text-xl font-semibold tracking-tight text-white hover:bg-transparent">
+                            Muhammad <span className="text-indigo-400">Dzulfiqar</span>
+                        </a>
+                    </div>
+
+                    <div className="flex-none">
+                        <ul className="menu menu-horizontal hidden lg:flex items-center gap-1 px-1">
+                            <li>
+                                <a href="#projects"
+                                    className="rounded-lg px-4 py-2 text-sm font-medium text-slate-300 transition-all duration-200 hover:text-white hover:bg-white/5">
+                                    Project
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#experience"
+                                    className="rounded-lg px-4 py-2 text-sm font-medium text-slate-300 transition-all duration-200 hover:text-white hover:bg-white/5">
+                                    Experience
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#footer"
+                                    className="ml-2 rounded-lg bg-indigo-500 px-4 py-2 text-sm font-medium text-white transition-all duration-200 hover:bg-indigo-400">
+                                    Contact
+                                </a>
+                            </li>
+                        </ul>
+
+                        <div className="dropdown dropdown-end lg:hidden">
+                            <label tabIndex={0} className="btn btn-ghost lg:hidden text-white hover:bg-white/5">
+                                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" />
+                                </svg>
+                            </label>
+                            <ul tabIndex={0}
+                                className="menu menu-sm dropdown-content mt-3 z-[1] w-52 gap-1 rounded-xl border border-white/10 bg-slate-900/95 backdrop-blur-md p-3 shadow-xl">
+                                <li><a href="#projects" className="rounded-lg text-slate-200 hover:bg-white/5">Project</a></li>
+                                <li><a href="#experience" className="rounded-lg text-slate-200 hover:bg-white/5">Experience</a></li>
+                                <li><a href="#footer" className="rounded-lg bg-indigo-500 text-white hover:bg-indigo-400">Contact</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <style>{`
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
+  }
+`}</style>
+        </>
+    )
+}
