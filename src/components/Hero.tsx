@@ -16,6 +16,7 @@ export default function Hero({
     const differenceInTime = now.getTime() - targetDate.getTime();
     const age = Math.floor(differenceInTime / (1000 * 60 * 60 * 24 * 365));
 
+
     useEffect(() => {
         // Efek Ketik (TypeWriter) yang aman di React.
         // Sumber teksnya konstanta di JS, bukan dibaca dari DOM — supaya tidak rusak
@@ -36,75 +37,83 @@ export default function Hero({
         return () => clearInterval(interval);
     }, []);
 
+
+
     return (
-        <section className="bg-base-200 rounded-lg fadeInUp-animation">
-            <div className="max-w-6xl mx-auto px-6 py-16 lg:py-24">
-                <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-14 lg:gap-10 items-center">
+        <>
+  
 
-                    <div className="flex flex-col gap-y-8 order-2 lg:order-1">
-                        <div className="flex flex-col gap-y-4">
-                            <p className="text-primary text-sm font-medium tracking-wide">Software Engineer · Data Analyst</p>
-                            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold primary-content leading-[1.1]">
-                                Hi, I'm <span id="myText" className="text-primary" aria-label={NAME}></span>
-                            </h1>
-                            <p className="primary-content/80 text-lg leading-relaxed max-w-md">
-                                Bachelor of Information Systems at Telkom University Surabaya. I enjoy learning new
-                                things, adapt quickly to new environments, and communicate clearly while tackling
-                                challenges.
-                            </p>
+            <section className="bg-base-200 rounded-lg fadeInUp-animation">
+                <div className="max-w-6xl mx-auto px-6 py-16 lg:py-24">
+                    <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-14 lg:gap-10 items-center">
+
+                        <div className="flex flex-col gap-y-8 order-2 lg:order-1">
+                            <div className="flex flex-col gap-y-4">
+                                <p className="text-primary text-sm font-medium tracking-wide">Software Engineer · Data Analyst</p>
+                                <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold primary-content leading-[1.1]">
+                                    Hi, I'm <span id="myText" className="text-primary" aria-label={NAME}></span>
+                                </h1>
+                                <p className="primary-content/80 text-lg leading-relaxed max-w-md">
+                                    Bachelor of Information Systems at Telkom University Surabaya. I enjoy learning new
+                                    things, adapt quickly to new environments, and communicate clearly while tackling
+                                    challenges.
+                                </p>
+                            </div>
+
+                            <div className="flex items-center divide-x divide-base-300 border-y border-base-300 py-5">
+                                <div className="flex flex-col pr-6">
+                                    <span className="text-2xl font-semibold primary-content">{project.length}</span>
+                                    <span className="text-sm text-base-content/60">Projects</span>
+                                </div>
+                                <div className="flex flex-col px-6">
+                                    <span className="text-2xl font-semibold primary-content">Programming</span>
+                                    <span className="text-sm text-base-content/60">Top skill</span>
+                                </div>
+                                <div className="flex flex-col pl-6">
+                                    <span className="text-2xl font-semibold primary-content">{age}</span>
+                                    <span className="text-sm text-base-content/60">Years old</span>
+                                </div>
+                            </div>
+
+                            <div className="flex items-center gap-6">
+                                <a className="btn btn-primary" target="_blank" rel="noopener noreferrer"
+                                    href="https://drive.google.com/file/d/1DLij7y01-1AnNNnbsH52OLNPo0zf2l1I/view?usp=sharing">
+                                    Download resume
+                                </a>
+
+                                <div className="flex items-center gap-4">
+                                    <a href="https://github.com/dzulfiqar03" target="_blank" rel="noopener noreferrer" aria-label="GitHub"
+                                        className="text-primary/70 hover:text-primary transition-colors">
+                                        <i className="fa-brands fa-github fa-lg"></i>
+                                    </a>
+                                    <a href="https://www.linkedin.com/in/muhammaddzulfiqar-" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"
+                                        className="text-primary/70 hover:text-primary transition-colors">
+                                        <i className="fa-brands fa-linkedin fa-lg"></i>
+                                    </a>
+                                    <a href="https://wa.me/6283832020245" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"
+                                        className="text-primary/70 hover:text-primary transition-colors">
+                                        <i className="fa-brands fa-whatsapp fa-lg"></i>
+                                    </a>
+                                </div>
+                            </div>
                         </div>
 
-                        <div className="flex items-center divide-x divide-base-300 border-y border-base-300 py-5">
-                            <div className="flex flex-col pr-6">
-                                <span className="text-2xl font-semibold primary-content">{project.length}</span>
-                                <span className="text-sm text-base-content/60">Projects</span>
-                            </div>
-                            <div className="flex flex-col px-6">
-                                <span className="text-2xl font-semibold primary-content">Programming</span>
-                                <span className="text-sm text-base-content/60">Top skill</span>
-                            </div>
-                            <div className="flex flex-col pl-6">
-                                <span className="text-2xl font-semibold primary-content">{age}</span>
-                                <span className="text-sm text-base-content/60">Years old</span>
-                            </div>
-                        </div>
-
-                        <div className="flex items-center gap-6">
-                            <a className="btn btn-primary" target="_blank" rel="noopener noreferrer"
-                                href="https://drive.google.com/file/d/1DLij7y01-1AnNNnbsH52OLNPo0zf2l1I/view?usp=sharing">
-                                Download resume
-                            </a>
-
-                            <div className="flex items-center gap-4">
-                                <a href="https://github.com/dzulfiqar03" target="_blank" rel="noopener noreferrer" aria-label="GitHub"
-                                    className="text-primary/70 hover:text-primary transition-colors">
-                                    <i className="fa-brands fa-github fa-lg"></i>
-                                </a>
-                                <a href="https://www.linkedin.com/in/muhammaddzulfiqar-" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"
-                                    className="text-primary/70 hover:text-primary transition-colors">
-                                    <i className="fa-brands fa-linkedin fa-lg"></i>
-                                </a>
-                                <a href="https://wa.me/6283832020245" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"
-                                    className="text-primary/70 hover:text-primary transition-colors">
-                                    <i className="fa-brands fa-whatsapp fa-lg"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
 
                     <div className="order-1 mt-4 lg:order-2 flex justify-center lg:justify-end">
-                        <div className="relative w-56 sm:w-72 lg:w-80">
-                            <div className="absolute -inset-3 rounded-[2rem] bg-primary/10 rotate-6"></div>
+                        <div className="group relative w-56 sm:w-72 lg:w-80">
+                            <div className="absolute -inset-3 rounded-[2rem] bg-primary/10 rotate-6 transition-transform group-hover:-rotate-6 group-hover:-translate-x-3 group-hover:-translate-y-3"></div>
                             <div id="images"
-                                className="relative rounded-[2rem] overflow-hidden ring-1 ring-base-300 shadow-xl cursor-pointer">
+                                className="group relative rounded-[2rem] overflow-hidden ring-1 ring-base-300 shadow-xl cursor-pointer">
                                 <img className="w-full h-full object-cover transition-transform duration-500 ease-in-out hover:scale-105"
                                     src={MyProfile} alt="Muhammad Dzulfiqar" />
                             </div>
                         </div>
                     </div>
+                  
 
+                    </div>
                 </div>
-            </div>
-        </section>
+            </section>
+        </>
     );
 }

@@ -10,8 +10,7 @@ import Tools from './components/Tools'
 function App() {
     const progressRef = useRef<HTMLDivElement>(null);
     useEffect(() => {
-        // Scroll progress bar. Set style langsung lewat ref (bukan useState)
-        // supaya tidak memicu re-render komponen di tiap event scroll.
+
         const updateProgress = () => {
             const scrollTop = window.scrollY;
             const docHeight = document.documentElement.scrollHeight - window.innerHeight;
