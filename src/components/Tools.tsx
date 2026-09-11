@@ -125,18 +125,18 @@ export default function Tools() {
 
     return (
         <>
-            <section id="tools" className="wrap py-10">
-                <div className="flex flex-row justify-between items-start w-full p-2">
-                    <h2 className="text-lg lg:text-2xl font-bold primary-content">
+            <section id="tools" className="wrap  mx-auto px-6   py-10">
+                <div className="flex max-w-6xl mx-auto px-6  flex-row justify-between items-start w-full p-2">
+                    <h2 className="text-lg lg:text-2xl font-bold text-black">
                         Tools
                     </h2>
                 </div>
 
-                <div className="flex m-auto justify-evenly gap-3" id="category-grid">
+                <div className="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-4  m-auto group w-max" id="category-grid">
                     {categories.map((cat) => (
                         <div
                             key={cat.id}
-                            className="card-tools w-100 reveal"
+                            className="card-tools group  hover:-rotate-6 hover:-translate-x-3 hover:-translate-y-3  reveal"
                             data-open="true"
                             style={{ "--accent": cat.accent } as React.CSSProperties}
                         >
@@ -157,7 +157,7 @@ export default function Tools() {
                                         />
                                         {cat.title}
                                     </h3>
-                                    <p>{cat.tagline}</p>
+
                                 </div>
                             </button>
 
@@ -182,10 +182,7 @@ export default function Tools() {
                     ))}
                 </div>
 
-                <div className="foot-note">
-                    <span className="dot"></span>Persentase mencerminkan tingkat kenyamanan
-                    penggunaan, bukan sertifikasi formal.
-                </div>
+
             </section>
 
             <style>
@@ -203,7 +200,7 @@ export default function Tools() {
 
     color: var(--text);
     font-family: "Inter", sans-serif;
-    max-width: 1040px;
+
     margin: 0 auto;
   }
 
@@ -237,7 +234,6 @@ export default function Tools() {
     border: 1px solid var(--border);
     border-radius: var(--radius);
     overflow: hidden;
-    transition: border-color 0.25s ease;
   }
   .card-tools[data-open="true"] {
     border-color: var(--accent, var(--border));

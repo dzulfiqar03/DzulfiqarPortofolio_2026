@@ -60,7 +60,6 @@ export default function Experiences() {
         },
     ];
 
-    // Latest experience first.
     const sorted = [...expList].sort(
         (a, b) => b.start_periode.getTime() - a.start_periode.getTime()
     );

@@ -15,33 +15,41 @@ export default function Hero({
     const now = new Date();
     const differenceInTime = now.getTime() - targetDate.getTime();
     const age = Math.floor(differenceInTime / (1000 * 60 * 60 * 24 * 365));
-
+    const prjLength = project.length;
 
     useEffect(() => {
-        // Efek Ketik (TypeWriter) yang aman di React.
-        // Sumber teksnya konstanta di JS, bukan dibaca dari DOM — supaya tidak rusak
-        // saat React StrictMode menjalankan effect ini dua kali di development.
-        const element = document.getElementById('myText');
-        if (!element) return;
 
-        element.textContent = '';
+        const elementName = document.getElementById('myText');
+        const elementAge = document.getElementById('myAge');
+        const elementProject = document.getElementById('myProject');
+        if (!elementName || !elementAge || !elementProject) return;
+
+        elementName.textContent = '';
+        elementAge.textContent = '';
+        elementProject.textContent = '';
         let i = 0;
+        let projectCount = 0;
         const interval = setInterval(() => {
             i++;
-            element.textContent = NAME.slice(0, i);
-            if (i >= NAME.length) {
+            if (projectCount < prjLength) projectCount++;
+            elementName.textContent = NAME.slice(0, i);
+            elementAge.textContent = i.toString();
+            elementProject.textContent = prjLength.toString();
+
+            if (i >= NAME.length && i >= age && projectCount >= prjLength) {
                 clearInterval(interval);
             }
         }, 50);
 
         return () => clearInterval(interval);
-    }, []);
+    }, [NAME, age, prjLength]);
+
 
 
 
     return (
         <>
-  
+
 
             <section className="bg-base-200 rounded-lg fadeInUp-animation">
                 <div className="max-w-6xl mx-auto px-6 py-16 lg:py-24">
@@ -62,7 +70,7 @@ export default function Hero({
 
                             <div className="flex items-center divide-x divide-base-300 border-y border-base-300 py-5">
                                 <div className="flex flex-col pr-6">
-                                    <span className="text-2xl font-semibold primary-content">{project.length}</span>
+                                    <span id="myProject" className="text-2xl font-semibold primary-content">{project.length}</span>
                                     <span className="text-sm text-base-content/60">Projects</span>
                                 </div>
                                 <div className="flex flex-col px-6">
@@ -70,7 +78,7 @@ export default function Hero({
                                     <span className="text-sm text-base-content/60">Top skill</span>
                                 </div>
                                 <div className="flex flex-col pl-6">
-                                    <span className="text-2xl font-semibold primary-content">{age}</span>
+                                    <span id="myAge" className="text-2xl font-semibold primary-content">{age}</span>
                                     <span className="text-sm text-base-content/60">Years old</span>
                                 </div>
                             </div>
@@ -99,17 +107,17 @@ export default function Hero({
                         </div>
 
 
-                    <div className="order-1 mt-4 lg:order-2 flex justify-center lg:justify-end">
-                        <div className="group relative w-56 sm:w-72 lg:w-80">
-                            <div className="absolute -inset-3 rounded-[2rem] bg-primary/10 rotate-6 transition-transform group-hover:-rotate-6 group-hover:-translate-x-3 group-hover:-translate-y-3"></div>
-                            <div id="images"
-                                className="group relative rounded-[2rem] overflow-hidden ring-1 ring-base-300 shadow-xl cursor-pointer">
-                                <img className="w-full h-full object-cover transition-transform duration-500 ease-in-out hover:scale-105"
-                                    src={MyProfile} alt="Muhammad Dzulfiqar" />
+                        <div className="order-1 mt-8 lg:order-2 flex justify-center lg:justify-end">
+                            <div className="group relative w-56 sm:w-72 lg:w-80">
+                                <div className="absolute -inset-3 rounded-[2rem] bg-primary/10 rotate-6 transition-transform group-hover:-rotate-6 group-hover:-translate-x-3 group-hover:-translate-y-3"></div>
+                                <div id="images"
+                                    className="group relative rounded-[2rem] overflow-hidden ring-1 ring-base-300 shadow-xl cursor-pointer">
+                                    <img className="w-full h-full object-cover transition-transform duration-500 ease-in-out hover:scale-105"
+                                        src={MyProfile} alt="Muhammad Dzulfiqar" />
+                                </div>
                             </div>
                         </div>
-                    </div>
-                  
+
 
                     </div>
                 </div>
