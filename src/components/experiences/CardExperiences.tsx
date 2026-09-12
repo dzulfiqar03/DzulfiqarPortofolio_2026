@@ -150,7 +150,7 @@ export default function CardExperiences({ item, accent, onNavigate }: CardExpPro
         {slides.map((slide) => (
           <div key={slide.id} className="w-full shrink-0 pr-1">
             {slide.id === "overview" && (
-              <div className="flex flex-col gap-3">
+              <div className="flex flex-col gap-3 ">
                 <div className="flex items-center gap-3">
                   <span
                     className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-white/5 ${accent.text}`}
@@ -190,7 +190,7 @@ export default function CardExperiences({ item, accent, onNavigate }: CardExpPro
             )}
 
             {slide.id === "evidence" && (
-              <div className="flex group flex-col gap-3">
+              <div className="flex group flex-col gap-3 ml-3">
                 <p className={`text-xs font-medium ${accent.text}`}>Evidence</p>
                 <div className="relative aspect-video w-full h-full overflow-hidden rounded-lg bg-white/5">
                   {Object.entries(item.slidesEvidence).map(([key, s], idx) => (
