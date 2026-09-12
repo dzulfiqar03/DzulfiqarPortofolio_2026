@@ -127,7 +127,7 @@ export default function Tools() {
         <>
             <section id="tools" className="wrap  mx-auto px-6   py-10">
                 <div className="flex max-w-6xl mx-auto px-6  flex-row justify-between items-start w-full p-2">
-                    <h2 className="text-lg lg:text-2xl font-bold text-black">
+                    <h2 className="text-lg lg:text-2xl font-bold primary-content">
                         Tools
                     </h2>
                 </div>
