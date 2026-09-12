@@ -142,7 +142,7 @@ export default function Projects() {
                 }
             ]
         },
-         {
+        {
             id: 3,
             title: "PT. Agung Jaya Mandiri Website",
             description:
@@ -188,7 +188,7 @@ export default function Projects() {
                 }
             ]
         },
-         {
+        {
             id: 4,
             title: "Whats'Want?",
             description:
@@ -234,16 +234,16 @@ export default function Projects() {
                 }
             ]
         },
-         {
-            id: 2,
-            title: "Givent - Gift and Event",
+        {
+            id: 5,
+            title: "RAG AI Chatbot TA dan Yudisium",
             description:
                 "A blog website built with Astro, allowing users to read and write articles on various topics.",
             image: "/assets/blog.png",
             link: "/projects/blog-website",
-            start_periode: "2023-07-01",
-            end_periode: "2023-09-01",
-            summary: "Givent merupakan website E-Commerce dibidang jasa dan penjualan produk mengenai event/acara yang berkepentingan.",
+            start_periode: "2026-02-01",
+            end_periode: "2026-07-01",
+            summary: "Chatbot web RAG berbahasa Indonesia untuk membantu mahasiswa bertanya seputar Tugas Akhir, sidang TA, pembimbing, yudisium, kelulusan, dan administrasi akademik terkait. Bot tertanam di homepage web (login mahasiswa), memakai Gemini sebagai model utama, dan Groq sebagai fallback jika Gemini terkena quota/rate limit.",
             type: "Project",
             slidesProject: [
                 {
