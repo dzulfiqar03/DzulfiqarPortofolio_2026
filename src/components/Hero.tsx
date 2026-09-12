@@ -108,7 +108,7 @@ export default function Hero({
                             <div className="group relative w-56 sm:w-72 lg:w-80">
                                 <div className="absolute -inset-3 rounded-[2rem] bg-primary/10 rotate-6 transition-transform group-hover:-rotate-6 group-hover:-translate-x-3 group-hover:-translate-y-3"></div>
                                 <div id="images"
-                                    className="group relative rounded-[2rem] overflow-hidden ring-1 ring-base-300 shadow-xl cursor-pointer">
+                                    className="group relative rounded-[2rem] bg-indigo-800 overflow-hidden ring-1 ring-base-300 shadow-xl cursor-pointer">
                                     <img className="w-full h-full object-cover transition-transform duration-500 ease-in-out hover:scale-105"
                                         src={MyProfile} alt="Muhammad Dzulfiqar" />
                                 </div>
