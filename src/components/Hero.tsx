@@ -10,7 +10,7 @@ const NAME = 'Muhammad Dzulfiqar';
 export default function Hero({
     project = [],
 }: HeroProps) {
-    // 1. Hitung umur secara dinamis menggunakan state/variabel aman
+
     const targetDate = new Date('2003-08-23');
     const now = new Date();
     const differenceInTime = now.getTime() - targetDate.getTime();
@@ -43,9 +43,6 @@ export default function Hero({
 
         return () => clearInterval(interval);
     }, [NAME, age, prjLength]);
-
-
-
 
     return (
         <>

@@ -6,52 +6,281 @@ export default function Projects() {
     const projectsList = [
         {
             id: 0,
-            title: "Portfolio Website",
+            title: "SiBanksa",
             description:
-                "A personal portfolio website built with Astro, showcasing my projects and skills.",
+                "Melalukan Pengabdian masyarakat bersama 3 dosen Sistem informasi dengan 2 rekan anggota tim selama 3 bulan dengan judul 'Sistem lnformasi Berbasis Website sebagai Media Edukasi dan Pelatihan Pembuatan Media Tanam pada CV Netafarm Indo Lestari Sidoarjo'",
             image: "/assets/portfolio.png",
             link: "/projects/portfolio-website",
-            start_periode: "2023-01-01",
-            end_periode: "2023-03-01",
-            summary: "ssmsm",
-            type: "smsms"
+            start_periode: "2025-09-01",
+            end_periode: "2026-07-01",
+            summary: "SiBanksa (Sistem Informasi Bank Sampah) adalah aplikasi web yang dirancang untuk mendigitalisasi pengelolaan bank sampah di lingkungan perumahan — mencakup pencatatan setoran, transaksi tabungan sampah, penjadwalan pengambilan, hingga verifikasi keanggotaan warga, yang mencakup 8 RT di Perumahan Sidorukun Indah, Gresik.",
+            type: "Research",
+            slidesProject: [
+                {
+                    image: 'https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?q=80&w=2070',
+                    title: 'Gotong Royong',
+                    desc: 'Membangun lingkungan yang bersih dan nyaman bersama.'
+                },
+                {
+                    image: 'https://images.unsplash.com/photo-1577495508048-b635879837f1?q=80&w=1974',
+                    title: 'Kegiatan Warga',
+                    desc: 'Transparansi dana RT untuk kesejahteraan kita semua.'
+                },
+                {
+                    image: 'https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=2070',
+                    title: 'Musyawarah Digital',
+                    desc: 'Sistem Informasi Bank Sampah & Keuangan Terpadu.'
+                }
+            ],
+            linkDoc: [
+                {
+                    icon: 'fa-github',
+                    title: 'Github',
+                    link: 'https://github.com/dzulfiqar03'
+                },
+                {
+                    icon: 'fa-linkedin',
+                    title: 'Linkedin',
+                    link: 'https://www.linkedin.com/in/muhammaddzulfiqar-'
+                },
+                {
+                    icon: 'fa-whatsapp',
+                    title: 'Whatsapp',
+                    link: 'https://wa.me/6283832020245.'
+                }
+            ]
         },
         {
             id: 1,
-            title: "E-commerce Platform",
+            title: "SeeU UMKM Website",
             description:
-                "An e-commerce platform built with Astro, featuring product listings, shopping cart, and checkout functionality.",
+                "Projek SeeU merupakan Projek Tim yang dikerjakan dengab metode Capstone yang mana berguna untuk memberikan solusi kepada UMKM khususnya Surabaya untuk mengumpulkan seluruh UMKM dalam 1 website guna memperluas pasar UMKM",
             image: "/assets/ecommerce.png",
             link: "/projects/ecommerce-platform",
-            start_periode: "2023-04-01",
-            end_periode: "2023-06-01",
-            summary: "ssmsm",
-            type: "smsms"
+            start_periode: "2024-04-01",
+            end_periode: "2024-06-01",
+            summary: "Projek SeeU merupakan Projek Tim yang dikerjakan dengab metode Capstone yang mana berguna untuk memberikan solusi kepada UMKM khususnya Surabaya untuk mengumpulkan seluruh UMKM dalam 1 website guna memperluas pasar UMKM",
+            type: "Project",
+            slidesProject: [
+                {
+                    image: 'https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?q=80&w=2070',
+                    title: 'Gotong Royong',
+                    desc: 'Membangun lingkungan yang bersih dan nyaman bersama.'
+                },
+                {
+                    image: 'https://images.unsplash.com/photo-1577495508048-b635879837f1?q=80&w=1974',
+                    title: 'Kegiatan Warga',
+                    desc: 'Transparansi dana RT untuk kesejahteraan kita semua.'
+                },
+                {
+                    image: 'https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=2070',
+                    title: 'Musyawarah Digital',
+                    desc: 'Sistem Informasi Bank Sampah & Keuangan Terpadu.'
+                }
+            ],
+            linkDoc: [
+                {
+                    icon: 'fa-github',
+                    title: 'Github',
+                    link: 'https://github.com/dzulfiqar03'
+                },
+                {
+                    icon: 'fa-linkedin',
+                    title: 'Linkedin',
+                    link: 'https://www.linkedin.com/in/muhammaddzulfiqar-'
+                },
+                {
+                    icon: 'fa-whatsapp',
+                    title: 'Whatsapp',
+                    link: 'https://wa.me/6283832020245.'
+                }
+            ]
         },
         {
             id: 2,
-            title: "Blog Website",
+            title: "Givent - Gift and Event",
             description:
                 "A blog website built with Astro, allowing users to read and write articles on various topics.",
             image: "/assets/blog.png",
             link: "/projects/blog-website",
             start_periode: "2023-07-01",
             end_periode: "2023-09-01",
-            summary: "ssmsm",
-            type: "smsms"
+            summary: "Givent merupakan website E-Commerce dibidang jasa dan penjualan produk mengenai event/acara yang berkepentingan.",
+            type: "Project",
+            slidesProject: [
+                {
+                    image: 'https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?q=80&w=2070',
+                    title: 'Gotong Royong',
+                    desc: 'Membangun lingkungan yang bersih dan nyaman bersama.'
+                },
+                {
+                    image: 'https://images.unsplash.com/photo-1577495508048-b635879837f1?q=80&w=1974',
+                    title: 'Kegiatan Warga',
+                    desc: 'Transparansi dana RT untuk kesejahteraan kita semua.'
+                },
+                {
+                    image: 'https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=2070',
+                    title: 'Musyawarah Digital',
+                    desc: 'Sistem Informasi Bank Sampah & Keuangan Terpadu.'
+                }
+            ],
+            linkDoc: [
+                {
+                    icon: 'fa-github',
+                    title: 'Github',
+                    link: 'https://github.com/dzulfiqar03'
+                },
+                {
+                    icon: 'fa-linkedin',
+                    title: 'Linkedin',
+                    link: 'https://www.linkedin.com/in/muhammaddzulfiqar-'
+                },
+                {
+                    icon: 'fa-whatsapp',
+                    title: 'Whatsapp',
+                    link: 'https://wa.me/6283832020245.'
+                }
+            ]
         },
-        {
+         {
             id: 3,
-            title: "Weather App",
+            title: "PT. Agung Jaya Mandiri Website",
             description:
-                "A weather application built with Astro, providing real-time weather information for different locations.",
-            image: "/assets/weather.png",
-            link: "/projects/weather-app",
-            start_periode: "2023-10-01",
-            end_periode: "2023-12-01",
-            summary: "ssmsm",
-            type: "smsms"
+                "A blog website built with Astro, allowing users to read and write articles on various topics.",
+            image: "/assets/blog.png",
+            link: "/projects/blog-website",
+            start_periode: "2023-07-01",
+            end_periode: "2023-09-01",
+            summary: "PT. Agung Jaya Mandiri Web Company merupakan web yang berkolaborasi dengan company bernama PT. AJM Global Mandiri yang menggunakan wordpress dengan hosting berbayar dengan tujuan untuk memperluas pasar PT. AJM Global Mandiri.",
+            type: "Project",
+            slidesProject: [
+                {
+                    image: 'https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?q=80&w=2070',
+                    title: 'Gotong Royong',
+                    desc: 'Membangun lingkungan yang bersih dan nyaman bersama.'
+                },
+                {
+                    image: 'https://images.unsplash.com/photo-1577495508048-b635879837f1?q=80&w=1974',
+                    title: 'Kegiatan Warga',
+                    desc: 'Transparansi dana RT untuk kesejahteraan kita semua.'
+                },
+                {
+                    image: 'https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=2070',
+                    title: 'Musyawarah Digital',
+                    desc: 'Sistem Informasi Bank Sampah & Keuangan Terpadu.'
+                }
+            ],
+            linkDoc: [
+                {
+                    icon: 'fa-github',
+                    title: 'Github',
+                    link: 'https://github.com/dzulfiqar03'
+                },
+                {
+                    icon: 'fa-linkedin',
+                    title: 'Linkedin',
+                    link: 'https://www.linkedin.com/in/muhammaddzulfiqar-'
+                },
+                {
+                    icon: 'fa-whatsapp',
+                    title: 'Whatsapp',
+                    link: 'https://wa.me/6283832020245.'
+                }
+            ]
         },
+         {
+            id: 4,
+            title: "Whats'Want?",
+            description:
+                "A blog website built with Astro, allowing users to read and write articles on various topics.",
+            image: "/assets/blog.png",
+            link: "/projects/blog-website",
+            start_periode: "2023-07-01",
+            end_periode: "2023-09-01",
+            summary: "Aplikasi What'sWant? Merupakan aplikasi dengan bahasa pemrograman flutter yang merupakan scheduling activity dan notes berguna untuk memudahkan masyarakat dalam memanage waktunya",
+            type: "Project",
+            slidesProject: [
+                {
+                    image: 'https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?q=80&w=2070',
+                    title: 'Gotong Royong',
+                    desc: 'Membangun lingkungan yang bersih dan nyaman bersama.'
+                },
+                {
+                    image: 'https://images.unsplash.com/photo-1577495508048-b635879837f1?q=80&w=1974',
+                    title: 'Kegiatan Warga',
+                    desc: 'Transparansi dana RT untuk kesejahteraan kita semua.'
+                },
+                {
+                    image: 'https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=2070',
+                    title: 'Musyawarah Digital',
+                    desc: 'Sistem Informasi Bank Sampah & Keuangan Terpadu.'
+                }
+            ],
+            linkDoc: [
+                {
+                    icon: 'fa-github',
+                    title: 'Github',
+                    link: 'https://github.com/dzulfiqar03'
+                },
+                {
+                    icon: 'fa-linkedin',
+                    title: 'Linkedin',
+                    link: 'https://www.linkedin.com/in/muhammaddzulfiqar-'
+                },
+                {
+                    icon: 'fa-whatsapp',
+                    title: 'Whatsapp',
+                    link: 'https://wa.me/6283832020245.'
+                }
+            ]
+        },
+         {
+            id: 2,
+            title: "Givent - Gift and Event",
+            description:
+                "A blog website built with Astro, allowing users to read and write articles on various topics.",
+            image: "/assets/blog.png",
+            link: "/projects/blog-website",
+            start_periode: "2023-07-01",
+            end_periode: "2023-09-01",
+            summary: "Givent merupakan website E-Commerce dibidang jasa dan penjualan produk mengenai event/acara yang berkepentingan.",
+            type: "Project",
+            slidesProject: [
+                {
+                    image: 'https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?q=80&w=2070',
+                    title: 'Gotong Royong',
+                    desc: 'Membangun lingkungan yang bersih dan nyaman bersama.'
+                },
+                {
+                    image: 'https://images.unsplash.com/photo-1577495508048-b635879837f1?q=80&w=1974',
+                    title: 'Kegiatan Warga',
+                    desc: 'Transparansi dana RT untuk kesejahteraan kita semua.'
+                },
+                {
+                    image: 'https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=2070',
+                    title: 'Musyawarah Digital',
+                    desc: 'Sistem Informasi Bank Sampah & Keuangan Terpadu.'
+                }
+            ],
+            linkDoc: [
+                {
+                    icon: 'fa-github',
+                    title: 'Github',
+                    link: 'https://github.com/dzulfiqar03'
+                },
+                {
+                    icon: 'fa-linkedin',
+                    title: 'Linkedin',
+                    link: 'https://www.linkedin.com/in/muhammaddzulfiqar-'
+                },
+                {
+                    icon: 'fa-whatsapp',
+                    title: 'Whatsapp',
+                    link: 'https://wa.me/6283832020245.'
+                }
+            ]
+        },
+
     ];
     return (
         <>
@@ -63,7 +292,7 @@ export default function Projects() {
                     </h2>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 items-center lg:grid-cols-3 gap-4 md:gap-10 lg:gap-4">
+                <div className="grid cursor-pointer grid-cols-1 md:grid-cols-2 items-center lg:grid-cols-3 gap-4 md:gap-10 lg:gap-4">
                     {projectsList.map((project) => <CardProject item={project} />)}
                 </div>
 
