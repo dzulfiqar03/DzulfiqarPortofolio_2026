@@ -347,7 +347,7 @@ export default function Experiences() {
                 <div className="flex group transition-all duration-700 flex-wrap gap-2 bg-gray-100 rounded-full">
                     {selectedYear !== 'all' && <button
                         onClick={() => setSelectedYear("all")}
-                        className={`rounded-full border px-3 py-1 text-xs font-medium transition-colors`}
+                        className={`rounded-full border-white/40  border px-3 py-1 text-xs font-medium transition-colors text-black/50 bg-gray-50`}
                     >
                         Reset Filter
                     </button>}
