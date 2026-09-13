@@ -17,17 +17,17 @@ export default function Projects() {
             type: "Research",
             slidesProject: [
                 {
-                    image: 'public/images/Projek/Sibanksa/dashboard.png',
+                    image: 'images/Projek/Sibanksa/dashboard.png',
                     title: 'Gotong Royong',
                     desc: 'Membangun lingkungan yang bersih dan nyaman bersama.'
                 },
                 {
-                    image: 'public/images/Projek/Sibanksa/login.png',
+                    image: 'images/Projek/Sibanksa/login.png',
                     title: 'Kegiatan Warga',
                     desc: 'Transparansi dana RT untuk kesejahteraan kita semua.'
                 },
                 {
-                    image: 'public/images/Projek/Sibanksa/chat.png',
+                    image: 'images/Projek/Sibanksa/chat.png',
                     title: 'Musyawarah Digital',
                     desc: 'Sistem Informasi Bank Sampah & Keuangan Terpadu.'
                 }
@@ -63,17 +63,17 @@ export default function Projects() {
             type: "Project",
             slidesProject: [
                 {
-                    image: 'public/images/Projek/SeeU/home.png',
+                    image: 'images/Projek/SeeU/home.png',
                     title: 'Gotong Royong',
                     desc: 'Membangun lingkungan yang bersih dan nyaman bersama.'
                 },
                 {
-                    image: 'public/images/Projek/SeeU/login.png',
+                    image: 'images/Projek/SeeU/login.png',
                     title: 'Kegiatan Warga',
                     desc: 'Transparansi dana RT untuk kesejahteraan kita semua.'
                 },
                 {
-                    image: 'public/images/Projek/SeeU/advertise.png',
+                    image: 'images/Projek/SeeU/advertise.png',
                     title: 'Musyawarah Digital',
                     desc: 'Sistem Informasi Bank Sampah & Keuangan Terpadu.'
                 }
@@ -109,12 +109,12 @@ export default function Projects() {
             type: "Project",
             slidesProject: [
                 {
-                    image: 'public/images/Projek/Givent/home.png',
+                    image: 'images/Projek/Givent/home.png',
                     title: 'Gotong Royong',
                     desc: 'Membangun lingkungan yang bersih dan nyaman bersama.'
                 },
                 {
-                    image: 'public/images/Projek/Givent/product.png',
+                    image: 'images/Projek/Givent/product.png',
                     title: 'Kegiatan Warga',
                     desc: 'Transparansi dana RT untuk kesejahteraan kita semua.'
                 },
@@ -151,17 +151,17 @@ export default function Projects() {
             type: "Project",
             slidesProject: [
                 {
-                    image: 'public/images/Projek/AJM/1.png',
+                    image: 'images/Projek/AJM/1.png',
                     title: 'Gotong Royong',
                     desc: 'Membangun lingkungan yang bersih dan nyaman bersama.'
                 },
                 {
-                    image: 'public/images/Projek/AJM/2.png',
+                    image: 'images/Projek/AJM/2.png',
                     title: 'Kegiatan Warga',
                     desc: 'Transparansi dana RT untuk kesejahteraan kita semua.'
                 },
                 {
-                    image: 'public/images/Projek/AJM/3.png',
+                    image: 'images/Projek/AJM/3.png',
                     title: 'Musyawarah Digital',
                     desc: 'Sistem Informasi Bank Sampah & Keuangan Terpadu.'
                 }
@@ -197,12 +197,12 @@ export default function Projects() {
             type: "Project",
             slidesProject: [
                 {
-                    image: 'public/images/Projek/Whatswant/1.jpg',
+                    image: 'images/Projek/Whatswant/1.jpg',
                     title: 'Gotong Royong',
                     desc: 'Membangun lingkungan yang bersih dan nyaman bersama.'
                 },
                 {
-                    image: 'public/images/Projek/Whatswant/2.jpg',
+                    image: 'images/Projek/Whatswant/2.jpg',
                     title: 'Kegiatan Warga',
                     desc: 'Transparansi dana RT untuk kesejahteraan kita semua.'
                 },
@@ -239,17 +239,17 @@ export default function Projects() {
             type: "Project",
             slidesProject: [
                 {
-                    image: 'public/images/Projek/Sruhh/login.png',
+                    image: 'images/Projek/Sruhh/login.png',
                     title: 'Gotong Royong',
                     desc: 'Membangun lingkungan yang bersih dan nyaman bersama.'
                 },
                 {
-                    image: 'public/images/Projek/Sruhh/chat.png',
+                    image: 'images/Projek/Sruhh/chat.png',
                     title: 'Kegiatan Warga',
                     desc: 'Transparansi dana RT untuk kesejahteraan kita semua.'
                 },
                 {
-                    image: 'public/images/Projek/Sruhh/knowledge.png',
+                    image: 'images/Projek/Sruhh/knowledge.png',
                     title: 'Musyawarah Digital',
                     desc: 'Sistem Informasi Bank Sampah & Keuangan Terpadu.'
                 }
