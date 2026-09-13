@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { ChevronRight } from "lucide-react";
-import type { ExpItem, Segment } from "./Experiences";
+import type { ExpItem, Segment } from "../../resources/ExperiencesList";
 
 
 interface CardExpProps {
@@ -120,10 +120,7 @@ export default function CardExperiences({ item, accent, onNavigate }: CardExpPro
     }
   };
 
-  // asumsi currentSlide dan slides sudah ada di scope komponen
   const [currentSlide, setCurrentSlide] = useState(0);
-
-
 
   useEffect(() => {
     if (Object.keys(!item.slidesEvidence).length) return;
@@ -207,7 +204,7 @@ export default function CardExperiences({ item, accent, onNavigate }: CardExpPro
                       <div className=" group-hover:opacity-0 group-hover:invisible transition-all duration-1000 absolute inset-0 bg-black/60"></div>
 
                       <div
-                        className=" group-hover:opacity-0 group-hover:invisible transition-all duration-1000 absolute inset-0 bg-gradient-to-t from-emerald-950/90 via-emerald-950/30 to-transparent">
+                        className=" group-hover:opacity-0 group-hover:invisible transition-all duration-1000 absolute inset-0 bg-gradient-to-t from-indigo-950/90 via-indigo-950/30 to-transparent">
                       </div>
 
                       <div className=" group-hover:opacity-0 group-hover:invisible transition-all duration-1000 absolute top-13 md:top-21 left-3 md:left-7 right-6 md:right-10 z-20">

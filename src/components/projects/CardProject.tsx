@@ -1,26 +1,15 @@
 import { useEffect, useRef, useState } from "react";
+import type { CardProps } from "../../resources/ProjectsList"
 
-interface CardProps {
-    item: {
-        id: number,
-        title: string,
-        start_periode: string,
-        end_periode: string,
-        type: string,
-        summary: string,
-        slidesProject: object,
-        linkDoc: object
-    }
-}
 export default function CardProject({ item }: CardProps) {
     const formatDate = (value: string) =>
         new Date(value).toLocaleDateString('en-US', { month: 'short', year: 'numeric' });
 
     const [currentSlide, setCurrentSlide] = useState(0);
-const dialogRef = useRef<HTMLDialogElement>(null);
+    const dialogRef = useRef<HTMLDialogElement>(null);
 
-  const openDialog = () => dialogRef.current?.showModal();
-  const closeDialog = () => dialogRef.current?.close();
+    const openDialog = () => dialogRef.current?.showModal();
+    const closeDialog = () => dialogRef.current?.close();
 
 
     useEffect(() => {
@@ -32,7 +21,7 @@ const dialogRef = useRef<HTMLDialogElement>(null);
     }, [item.slidesProject]);
     return (
         <>
-            <div  onClick={openDialog} className=" w-full group reveal sm:max-h-24 lg:max-h-none" >
+            <div onClick={openDialog} className=" w-full group reveal sm:max-h-24 lg:max-h-none" >
                 <div className="relative aspect-video w-full h-48 overflow-hidden rounded-t-lg">
                     {Object.entries(item.slidesProject).map(([key, s], idx) => (
                         <div
@@ -48,7 +37,7 @@ const dialogRef = useRef<HTMLDialogElement>(null);
                                 className="absolute inset-0 h-full w-full object-cover"
                             />
                             <div className="absolute inset-0 bg-black/60 group-hover:opacity-100 opacity-0  transition-all duration-1000" />
-                            <div className="absolute group-in-range:opacity-100 inset-0 bg-gradient-to-t from-emerald-950/90 via-emerald-950/30 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-1000" />
+                            <div className="absolute group-in-range:opacity-100 inset-0 bg-gradient-to-t from-indigo-950/90 via-indigo-950/30 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-1000" />
 
                         </div>
                     ))}
@@ -59,12 +48,11 @@ const dialogRef = useRef<HTMLDialogElement>(null);
                                 See Our Documentation
                             </h2>
                             <div className="flex items-center gap-4">
-                                 {Object.entries(item.linkDoc).map(([key, s]) => (
-                                <a key={key} href={s.link} target="_blank" rel="noopener noreferrer" aria-label={s.title}
-                                    className="text-white hover:text-primary transition-colors">
-                                    <i className={`fa-brands ${s.icon} fa-lg`}></i>
-                                </a>
-                                 ))}
+                                {Object.entries(item.linkDoc).map(([key, s]) => (
+                                    <a key={key} href={s.link} target="_blank" rel="noopener noreferrer" aria-label={s.title}
+                                        className="text-white hover:text-primary transition-colors">
+                                        <i className={s.title !== 'email' && s.title !== 'Link Website' ? `fa-brands ${s.icon} fa-lg` : `fas ${s.icon} fa-lg`}></i>                                    </a>
+                                ))}
                             </div>
                         </div>
                     </div>
@@ -93,46 +81,46 @@ const dialogRef = useRef<HTMLDialogElement>(null);
             </div>
 
             <dialog onClick={closeDialog}
-        ref={dialogRef}
-        className="backdrop:bg-black/70 rounded-xl transition-colors duration-500 bg-gray-800 text-white p-0 w-full lg:max-w-lg m-auto"
-      >
-        <div className="p-6 reveal">
-          <div className="flex justify-between items-start mb-4">
-            <h2 className="text-lg font-bold">{item.title}</h2>
-            <button
-              type="button"
-              onClick={closeDialog}
-              className="text-white/50 hover:text-white"
-              aria-label="Close"
+                ref={dialogRef}
+                className="backdrop:bg-black/70 rounded-xl transition-colors duration-500 bg-gray-800 text-white p-0 w-full lg:max-w-lg m-auto"
             >
-              ✕
-            </button>
-          </div>
+                <div className="p-6 reveal">
+                    <div className="flex justify-between items-start mb-4">
+                        <h2 className="text-lg font-bold">{item.title}</h2>
+                        <button
+                            type="button"
+                            onClick={closeDialog}
+                            className="text-white/50 hover:text-white"
+                            aria-label="Close"
+                        >
+                            ✕
+                        </button>
+                    </div>
 
-          <p className="text-sm text-white/70 mb-4">{item.summary}</p>
+                    <p className="text-sm text-white/70 mb-4">{item.summary}</p>
 
-          <div className="flex gap-4">
-            {Object.entries(item.linkDoc).map(([key, s]) => (
-              <a
-                key={key}
-                href={s.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-white hover:text-primary"
-              >
-                <i className={`fa-brands ${s.icon} fa-lg`}></i>
-              </a>
-            ))}
-          </div>
+                    <div className="flex gap-4">
+                        {Object.entries(item.linkDoc).map(([key, s]) => (
+                            <a
+                                key={key}
+                                href={s.link}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-white hover:text-primary"
+                            >
+                                <i className={s.title !== 'email' && s.title !== 'Link Website' ? `fa-brands ${s.icon} fa-lg` : `fas ${s.icon} fa-lg`}></i>
+                            </a>
+                        ))}
+                    </div>
 
-          <a
-            href={`/projects/${item.id}`}
-            className="mt-6 inline-block rounded-full bg-primary px-4 py-2 text-xs font-medium"
-          >
-            Lihat Detail Lengkap
-          </a>
-        </div>
-      </dialog>
+                    <a
+                        href={`/projects/${item.id}`}
+                        className="mt-6 inline-block rounded-full bg-primary px-4 py-2 text-xs font-medium"
+                    >
+                        Lihat Detail Lengkap
+                    </a>
+                </div>
+            </dialog>
         </>
     )
 }

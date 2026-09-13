@@ -1,11 +1,12 @@
 import { useEffect, useRef } from 'react';
 import './App.css'
-import './assets/css/index.css'
+import './index.css'
 import Footer from './components/Footer'
 import Projects from './components/projects/Projects'
 import Experiences from './components/experiences/Experiences'
 import Navbar from './components/Navbar'
 import Tools from './components/Tools'
+import Publications from './components/Publications';
 function App() {
   const progressRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
@@ -28,10 +29,6 @@ function App() {
     };
   }, []);
 
-
-
-
-
   return (
     <>
       <div
@@ -44,6 +41,7 @@ function App() {
       <Projects />
       <Experiences />
       <Tools />
+      <Publications />
       <div className="bg-base-200">
         <Footer />
       </div>

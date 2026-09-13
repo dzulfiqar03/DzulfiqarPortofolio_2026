@@ -47,9 +47,8 @@ export default function Hero({
     return (
         <>
 
-
             <section className="bg-base-200 rounded-lg fadeInUp-animation">
-                <div className="max-w-6xl mx-auto px-6 py-16 lg:py-24">
+                <div className="max-w-6xl mx-auto px-6 py-16 lg:py-30">
                     <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-14 lg:gap-10 items-center">
 
                         <div className="flex flex-col gap-y-8 order-2 lg:order-1">
@@ -58,10 +57,11 @@ export default function Hero({
                                 <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold primary-content leading-[1.1]">
                                     Hi, I'm <span id="myText" className="text-primary" aria-label={NAME}></span>
                                 </h1>
-                                <p className="primary-content/80 text-lg leading-relaxed max-w-md">
-                                    Bachelor of Information Systems at Telkom University Surabaya. I enjoy learning new
-                                    things, adapt quickly to new environments, and communicate clearly while tackling
-                                    challenges.
+                                <p className="primary-content/80 text-lg leading-relaxed text-justify">
+                                    Fresh Graduate of Information Systems student at Telkom University Surabaya (GPA 3.88/4.00) with 1.5+ years of hands-on web
+development experience across Laravel, Next.js, and Vue.js internships. Independently designed, built, and deployed a full-stack Progressive
+Web App from requirements through production and Build a Project with Flutter Mobile Programming. Combines front-end and back-end
+development skills with a data-analysis background, translating business requirements into functional, user-tested web applications.
                                 </p>
                             </div>
 
