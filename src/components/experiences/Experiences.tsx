@@ -57,17 +57,17 @@ export default function Experiences() {
             skill: ['Figma', 'Canva', 'Coreldraw', 'Leadership', 'Integrity', 'Problem Solving', 'Critical Thinking'],
             slidesEvidence: [
                 {
-                    image: 'https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?q=80&w=2070',
+                    image: 'src/assets/images/Experiences/DPM/1.jpeg',
                     title: 'Gotong Royong',
                     desc: 'Membangun lingkungan yang bersih dan nyaman bersama.'
                 },
                 {
-                    image: 'https://images.unsplash.com/photo-1577495508048-b635879837f1?q=80&w=1974',
+                    image: 'src/assets/images/Experiences/DPM/2.jpeg',
                     title: 'Kegiatan Warga',
                     desc: 'Transparansi dana RT untuk kesejahteraan kita semua.'
                 },
                 {
-                    image: 'https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=2070',
+                    image: 'src/assets/images/Experiences/DPM/3.jpeg',
                     title: 'Musyawarah Digital',
                     desc: 'Sistem Informasi Bank Sampah & Keuangan Terpadu.'
                 }
@@ -103,17 +103,27 @@ export default function Experiences() {
             skill: ['Sponsorship', 'Content Planner', 'Teamwork', 'Team Management', 'Team Leadership', 'Team Building', 'Critical Thinking', 'Design'],
             slidesEvidence: [
                 {
-                    image: 'https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?q=80&w=2070',
+                    image: 'src/assets/images/Experiences/GDSC/1.jpeg',
                     title: 'Gotong Royongs',
                     desc: 'Membangun lingkungan yang bersih dan nyaman bersama.'
                 },
                 {
-                    image: 'https://images.unsplash.com/photo-1577495508048-b635879837f1?q=80&w=1974',
+                    image: 'src/assets/images/Experiences/GDSC/2.jpeg',
                     title: 'Kegiatan Warga',
                     desc: 'Transparansi dana RT untuk kesejahteraan kita semua.'
                 },
                 {
-                    image: 'https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=2070',
+                    image: 'src/assets/images/Experiences/GDSC/3.jpeg',
+                    title: 'Musyawarah Digital',
+                    desc: 'Sistem Informasi Bank Sampah & Keuangan Terpadu.'
+                },
+                {
+                    image: 'src/assets/images/Experiences/GDSC/4.jpeg',
+                    title: 'Musyawarah Digital',
+                    desc: 'Sistem Informasi Bank Sampah & Keuangan Terpadu.'
+                },
+                {
+                    image: 'src/assets/images/Experiences/GDSC/5.jpeg',
                     title: 'Musyawarah Digital',
                     desc: 'Sistem Informasi Bank Sampah & Keuangan Terpadu.'
                 }
@@ -151,17 +161,22 @@ export default function Experiences() {
             skill: ['Flutter', 'Postman API', 'Teamwork', 'Responsible', 'Problem Solving', 'Critical Thinking', 'Leadership', 'Integrity'],
             slidesEvidence: [
                 {
-                    image: 'https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?q=80&w=2070',
+                    image: 'src/assets/images/Experiences/Flutter/1.jpeg',
                     title: 'Gotong Royong',
                     desc: 'Membangun lingkungan yang bersih dan nyaman bersama.'
                 },
                 {
-                    image: 'https://images.unsplash.com/photo-1577495508048-b635879837f1?q=80&w=1974',
+                    image: 'src/assets/images/Experiences/Flutter/2.jpeg',
                     title: 'Kegiatan Warga',
                     desc: 'Transparansi dana RT untuk kesejahteraan kita semua.'
                 },
                 {
-                    image: 'https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=2070',
+                    image: 'src/assets/images/Experiences/Flutter/3.jpeg',
+                    title: 'Musyawarah Digital',
+                    desc: 'Sistem Informasi Bank Sampah & Keuangan Terpadu.'
+                },
+                 {
+                    image: 'src/assets/images/Experiences/Flutter/4.jpeg',
                     title: 'Musyawarah Digital',
                     desc: 'Sistem Informasi Bank Sampah & Keuangan Terpadu.'
                 }
@@ -241,17 +256,17 @@ export default function Experiences() {
             skill: ['Next.js', 'HTML', 'CSS', 'Javascript', 'Git', 'Teamwork', 'Team Leadership', 'Integrity', 'Problem Solving', 'Critical Thinking', 'Modular Programming'],
             slidesEvidence: [
                 {
-                    image: 'https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?q=80&w=2070',
+                    image: 'src/assets/images/Experiences/Frontend/1.jpeg',
                     title: 'Gotong Royong',
                     desc: 'Membangun lingkungan yang bersih dan nyaman bersama.'
                 },
                 {
-                    image: 'https://images.unsplash.com/photo-1577495508048-b635879837f1?q=80&w=1974',
+                    image: 'src/assets/images/Experiences/Frontend/2.jpeg',
                     title: 'Kegiatan Warga',
                     desc: 'Transparansi dana RT untuk kesejahteraan kita semua.'
                 },
                 {
-                    image: 'https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=2070',
+                    image: 'src/assets/images/Experiences/Frontend/3.jpeg',
                     title: 'Musyawarah Digital',
                     desc: 'Sistem Informasi Bank Sampah & Keuangan Terpadu.'
                 }

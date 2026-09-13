@@ -17,17 +17,17 @@ export default function Projects() {
             type: "Research",
             slidesProject: [
                 {
-                    image: 'https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?q=80&w=2070',
+                    image: 'src/assets/images/Projek/Sibanksa/dashboard.png',
                     title: 'Gotong Royong',
                     desc: 'Membangun lingkungan yang bersih dan nyaman bersama.'
                 },
                 {
-                    image: 'https://images.unsplash.com/photo-1577495508048-b635879837f1?q=80&w=1974',
+                    image: 'src/assets/images/Projek/Sibanksa/login.png',
                     title: 'Kegiatan Warga',
                     desc: 'Transparansi dana RT untuk kesejahteraan kita semua.'
                 },
                 {
-                    image: 'https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=2070',
+                    image: 'src/assets/images/Projek/Sibanksa/chat.png',
                     title: 'Musyawarah Digital',
                     desc: 'Sistem Informasi Bank Sampah & Keuangan Terpadu.'
                 }
@@ -63,17 +63,17 @@ export default function Projects() {
             type: "Project",
             slidesProject: [
                 {
-                    image: 'https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?q=80&w=2070',
+                    image: 'src/assets/images/Projek/SeeU/home.png',
                     title: 'Gotong Royong',
                     desc: 'Membangun lingkungan yang bersih dan nyaman bersama.'
                 },
                 {
-                    image: 'https://images.unsplash.com/photo-1577495508048-b635879837f1?q=80&w=1974',
+                    image: 'src/assets/images/Projek/SeeU/login.png',
                     title: 'Kegiatan Warga',
                     desc: 'Transparansi dana RT untuk kesejahteraan kita semua.'
                 },
                 {
-                    image: 'https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=2070',
+                    image: 'src/assets/images/Projek/SeeU/advertise.png',
                     title: 'Musyawarah Digital',
                     desc: 'Sistem Informasi Bank Sampah & Keuangan Terpadu.'
                 }
@@ -109,20 +109,16 @@ export default function Projects() {
             type: "Project",
             slidesProject: [
                 {
-                    image: 'https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?q=80&w=2070',
+                    image: 'src/assets/images/Projek/Givent/home.png',
                     title: 'Gotong Royong',
                     desc: 'Membangun lingkungan yang bersih dan nyaman bersama.'
                 },
                 {
-                    image: 'https://images.unsplash.com/photo-1577495508048-b635879837f1?q=80&w=1974',
+                    image: 'src/assets/images/Projek/Givent/product.png',
                     title: 'Kegiatan Warga',
                     desc: 'Transparansi dana RT untuk kesejahteraan kita semua.'
                 },
-                {
-                    image: 'https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=2070',
-                    title: 'Musyawarah Digital',
-                    desc: 'Sistem Informasi Bank Sampah & Keuangan Terpadu.'
-                }
+
             ],
             linkDoc: [
                 {
@@ -155,17 +151,17 @@ export default function Projects() {
             type: "Project",
             slidesProject: [
                 {
-                    image: 'https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?q=80&w=2070',
+                    image: 'src/assets/images/Projek/AJM/1.png',
                     title: 'Gotong Royong',
                     desc: 'Membangun lingkungan yang bersih dan nyaman bersama.'
                 },
                 {
-                    image: 'https://images.unsplash.com/photo-1577495508048-b635879837f1?q=80&w=1974',
+                    image: 'src/assets/images/Projek/AJM/2.png',
                     title: 'Kegiatan Warga',
                     desc: 'Transparansi dana RT untuk kesejahteraan kita semua.'
                 },
                 {
-                    image: 'https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=2070',
+                    image: 'src/assets/images/Projek/AJM/3.png',
                     title: 'Musyawarah Digital',
                     desc: 'Sistem Informasi Bank Sampah & Keuangan Terpadu.'
                 }
@@ -201,20 +197,16 @@ export default function Projects() {
             type: "Project",
             slidesProject: [
                 {
-                    image: 'https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?q=80&w=2070',
+                    image: 'src/assets/images/Projek/Whatswant/1.jpg',
                     title: 'Gotong Royong',
                     desc: 'Membangun lingkungan yang bersih dan nyaman bersama.'
                 },
                 {
-                    image: 'https://images.unsplash.com/photo-1577495508048-b635879837f1?q=80&w=1974',
+                    image: 'src/assets/images/Projek/Whatswant/2.jpg',
                     title: 'Kegiatan Warga',
                     desc: 'Transparansi dana RT untuk kesejahteraan kita semua.'
                 },
-                {
-                    image: 'https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=2070',
-                    title: 'Musyawarah Digital',
-                    desc: 'Sistem Informasi Bank Sampah & Keuangan Terpadu.'
-                }
+     
             ],
             linkDoc: [
                 {
@@ -247,17 +239,17 @@ export default function Projects() {
             type: "Project",
             slidesProject: [
                 {
-                    image: 'https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?q=80&w=2070',
+                    image: 'src/assets/images/Projek/Sruhh/login.png',
                     title: 'Gotong Royong',
                     desc: 'Membangun lingkungan yang bersih dan nyaman bersama.'
                 },
                 {
-                    image: 'https://images.unsplash.com/photo-1577495508048-b635879837f1?q=80&w=1974',
+                    image: 'src/assets/images/Projek/Sruhh/chat.png',
                     title: 'Kegiatan Warga',
                     desc: 'Transparansi dana RT untuk kesejahteraan kita semua.'
                 },
                 {
-                    image: 'https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=2070',
+                    image: 'src/assets/images/Projek/Sruhh/knowledge.png',
                     title: 'Musyawarah Digital',
                     desc: 'Sistem Informasi Bank Sampah & Keuangan Terpadu.'
                 }
