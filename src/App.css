@@ -1,6 +1,7 @@
 @import "tailwindcss";
 @plugin "daisyui";
 
+
 @keyframes fadeInUp {
   0% {
     transform: translateY(0%);

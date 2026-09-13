@@ -6,7 +6,6 @@ import Projects from './components/projects/Projects'
 import Experiences from './components/experiences/Experiences'
 import Navbar from './components/Navbar'
 import Tools from './components/Tools'
-
 function App() {
   const progressRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
@@ -28,6 +27,11 @@ function App() {
       window.removeEventListener('resize', updateProgress);
     };
   }, []);
+
+
+
+
+
   return (
     <>
       <div
@@ -35,6 +39,7 @@ function App() {
         className="fixed top-0 left-0 z-[9999] h-1 w-0 bg-primary"
         aria-hidden="true"
       />
+
       <Navbar />
       <Projects />
       <Experiences />

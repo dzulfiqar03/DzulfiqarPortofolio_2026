@@ -37,7 +37,7 @@ const dialogRef = useRef<HTMLDialogElement>(null);
                     {Object.entries(item.slidesProject).map(([key, s], idx) => (
                         <div
                             key={key}
-                            className={`absolute inset-0 h-full w-full transition-opacity duration-700 ${currentSlide % Object.keys(item.slidesProject).length === idx
+                            className={`  h-full w-full transition-opacity duration-700 ${currentSlide % Object.keys(item.slidesProject).length === idx
                                 ? "opacity-100 z-10"
                                 : "opacity-0 z-0"
                                 }`}

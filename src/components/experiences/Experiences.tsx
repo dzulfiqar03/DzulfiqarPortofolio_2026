@@ -1,4 +1,4 @@
-import { useState, useMemo, useRef, useEffect } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import CardExperiences from "./CardExperiences";
 import OtherExperience from "./OtherExperience";
 
@@ -428,7 +428,8 @@ export default function Experiences() {
                                         <div
                                             key={item.id}
                                             className="relative flex-none px-4"
-                                            style={{ width: `${ITEM_WIDTH}px` }}
+                                            style={
+                                                { width: `${ITEM_WIDTH}px` }}
                                         >
                                             <div
                                                 className={`relative z-10 mx-auto flex h-10 w-10 items-center justify-center rounded-full bg-base-100 border-2 ${segment.border} font-bold ${segment.text}`}
@@ -453,7 +454,6 @@ export default function Experiences() {
                     </div>
                 )}
 
-                <div className="absolute left-5 md:left-1/2 bottom-0 -translate-x-1/2 translate-y-1 h-0 w-0 border-x-8 border-x-transparent border-t-[10px] border-t-slate-400" />
             </div>
 
 

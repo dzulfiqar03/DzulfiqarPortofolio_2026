@@ -1,192 +1,250 @@
-import { useEffect } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 interface Skill {
-    name: string;
-    pct: number;
+  name: string;
+  pct: number;
+  iconTitle: string
+
 }
 
 interface Category {
-    id: string;
-    title: string;
-    tagline: string;
-    accent: string;
-    overall: number;
-    icon: string;
-    skills: Skill[];
+  id: string;
+  title: string;
+  tagline: string;
+  accent: string;
+  overall: number;
+  icon: string;
+  skills: Skill[];
 }
 
 const categories: Category[] = [
-    {
-        id: "programming",
-        title: "Programming",
-        tagline: "Front-end & back-end",
-        accent: "var(--steel)",
-        overall: 82,
-        icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>',
-        skills: [
-            { name: "HTML & CSS", pct: 90 },
-            { name: "JavaScript", pct: 80 },
-            { name: "Tailwind CSS", pct: 88 },
-            { name: "Bootstrap", pct: 85 },
-            { name: "PHP", pct: 65 },
-            { name: "MySQL & SQL Server", pct: 70 },
-        ],
-    },
-    {
-        id: "design",
-        title: "Desain",
-        tagline: "UI, brand & ilustrasi",
-        accent: "var(--amber)",
-        overall: 87,
-        icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"></path><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path><path d="M2 2l7.586 7.586"></path><circle cx="11" cy="11" r="2"></circle></svg>',
-        skills: [
-            { name: "Figma", pct: 90 },
-            { name: "Canva", pct: 95 },
-            { name: "Adobe Illustrator", pct: 75 },
-        ],
-    },
-    {
-        id: "office",
-        title: "Office",
-        tagline: "Dokumen & presentasi",
-        accent: "var(--sage)",
-        overall: 78,
-        icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="9" y1="13" x2="15" y2="13"></line><line x1="9" y1="17" x2="15" y2="17"></line></svg>',
-        skills: [
-            { name: "Microsoft Word", pct: 95 },
-            { name: "Microsoft Excel", pct: 85 },
-            { name: "Microsoft PowerPoint", pct: 80 },
-            { name: "GitHub", pct: 82 },
-        ],
-    },
+  {
+    id: "programming",
+    title: "Programming",
+    tagline: "Front-end & back-end",
+    accent: "var(--steel)",
+    overall: 82,
+    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>',
+    skills: [
+      { name: "HTML & CSS", pct: 90, iconTitle: 'html5' },
+      { name: "JavaScript", pct: 80, iconTitle: 'javascript' },
+      { name: "Tailwind CSS", pct: 88, iconTitle: 'tailwindcss' },
+      { name: "Bootstrap", pct: 85, iconTitle: 'bootstrap' },
+      { name: "PHP", pct: 65, iconTitle: 'php' },
+      { name: "MySQL", pct: 70, iconTitle: 'mysql' },
+      { name: "Laravel", pct: 90, iconTitle: 'laravel' },
+      { name: "Flutter", pct: 90, iconTitle: 'flutter' },
+    ],
+  },
+  {
+    id: "design",
+    title: "Desain",
+    tagline: "UI, brand & ilustrasi",
+    accent: "var(--amber)",
+    overall: 87,
+    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"></path><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path><path d="M2 2l7.586 7.586"></path><circle cx="11" cy="11" r="2"></circle></svg>',
+    skills: [
+      { name: "Figma", pct: 90, iconTitle: 'figma' },
+      { name: "Canva", pct: 95, iconTitle: 'canva' },
+      { name: "Adobe Illustrator", pct: 75, iconTitle: 'adobeillustrator' },
+    ],
+  },
+  {
+    id: "office",
+    title: "Office",
+    tagline: "Dokumen & presentasi",
+    accent: "var(--sage)",
+    overall: 78,
+    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="9" y1="13" x2="15" y2="13"></line><line x1="9" y1="17" x2="15" y2="17"></line></svg>',
+    skills: [
+      { name: "Microsoft Word", pct: 95, iconTitle: 'microsoftword' },
+      { name: "Microsoft Excel", pct: 85, iconTitle: 'microsoftexcel' },
+      { name: "Microsoft PowerPoint", pct: 80, iconTitle: 'microsoftpowerpoint' },
+      { name: "GitHub", pct: 82, iconTitle: 'github' },
+    ],
+  },
 ];
 
+
 export default function Tools() {
-    // Semua manipulasi DOM harus jalan SETELAH React commit ke DOM,
-    // jadi ini wajib di dalam useEffect, bukan di badan komponen.
-    useEffect(() => {
-        const grid = document.getElementById("category-grid");
-        if (!grid) return;
+  useEffect(() => {
+    const timers: number[] = [];
+    const clickHandlers = new WeakMap<HTMLButtonElement, () => void>();
 
-        const cards = Array.from(grid.querySelectorAll<HTMLElement>(".card-tools"));
-        const timers: number[] = [];
-        const clickHandlers = new WeakMap<HTMLButtonElement, () => void>();
+    document.querySelectorAll<HTMLElement>("#category-grid [data-ring], #icon-grid [data-ring]")
+      .forEach((ring) => {
+        const overall = Number(ring.dataset.overall ?? "0");
+        const accent = ring.dataset.accent ?? "var(--steel)";
+        const t = window.setTimeout(() => {
+          ring.style.transition = "background 1.1s cubic-bezier(0.16,1,0.3,1)";
+          ring.style.background = `conic-gradient(${accent} ${overall * 3.6}deg, var(--surface-2) 0deg)`;
+        }, 80);
+        timers.push(t);
+      });
 
-        cards.forEach((card) => {
-            // animate ring in on load
-            const ring = card.querySelector<HTMLElement>("[data-ring]");
-            if (ring) {
-                const overall = Number(ring.dataset.overall ?? "0");
-                const accent = ring.dataset.accent ?? "var(--steel)";
-                const t = window.setTimeout(() => {
-                    ring.style.transition = "background 1.1s cubic-bezier(0.16,1,0.3,1)";
-                    ring.style.background = `conic-gradient(${accent} ${overall * 3.6}deg, var(--surface-2) 0deg)`;
-                }, 80);
-                timers.push(t);
-            }
+    const grid = document.getElementById("category-grid");
+    const cards = grid ? Array.from(grid.querySelectorAll<HTMLElement>(".card-tools")) : [];
 
-            // animate each skill bar in on load
-            card.querySelectorAll<HTMLElement>("[data-fill]").forEach((bar) => {
-                const t = window.setTimeout(() => {
-                    bar.style.width = `${bar.dataset.fill}%`;
-                }, 80);
-                timers.push(t);
-            });
+    cards.forEach((card) => {
+      card.querySelectorAll<HTMLElement>("[data-fill]").forEach((bar) => {
+        const t = window.setTimeout(() => {
+          bar.style.width = `${bar.dataset.fill}%`;
+        }, 80);
+        timers.push(t);
+      });
 
-            // accordion: toggle this card open/closed, close the others
-            const btn = card.querySelector<HTMLButtonElement>(".card-head");
-            if (btn) {
-                const onClick = () => {
-                    const isOpen = card.getAttribute("data-open") === "true";
-                    cards.forEach((c) => {
-                        c.setAttribute("data-open", "false");
-                        c.querySelector(".card-head")?.setAttribute("aria-expanded", "false");
-                    });
-                    if (!isOpen) {
-                        card.setAttribute("data-open", "true");
-                        btn.setAttribute("aria-expanded", "true");
-                    }
-                };
-                btn.addEventListener("click", onClick);
-                // stash for cleanup
-                clickHandlers.set(btn, onClick);
-            }
-        });
-
-        return () => {
-            timers.forEach((t) => window.clearTimeout(t));
-            cards.forEach((card) => {
-                const btn = card.querySelector<HTMLButtonElement>(".card-head");
-                const handler = btn ? clickHandlers.get(btn) : undefined;
-                if (btn && handler) btn.removeEventListener("click", handler);
-            });
+      const btn = card.querySelector<HTMLButtonElement>(".card-head");
+      if (btn) {
+        const onClick = () => {
+          const isOpen = card.getAttribute("data-open") === "true";
+          cards.forEach((c) => {
+            c.setAttribute("data-open", "false");
+            c.querySelector(".card-head")?.setAttribute("aria-expanded", "false");
+          });
+          if (!isOpen) {
+            card.setAttribute("data-open", "true");
+            btn.setAttribute("aria-expanded", "true");
+          }
         };
-    }, []);
+        btn.addEventListener("click", onClick);
+        clickHandlers.set(btn, onClick);
+      }
+    });
 
-    return (
-        <>
-            <section id="tools" className="wrap  mx-auto px-6   py-10">
-                <div className="flex max-w-6xl mx-auto px-6  flex-row justify-between items-start w-full p-2">
-                    <h2 className="text-lg lg:text-2xl font-bold primary-content">
-                        Tools
-                    </h2>
+    return () => {
+      timers.forEach((t) => window.clearTimeout(t));
+      cards.forEach((card) => {
+        const btn = card.querySelector<HTMLButtonElement>(".card-head");
+        const handler = btn ? clickHandlers.get(btn) : undefined;
+        if (btn && handler) btn.removeEventListener("click", handler);
+      });
+    };
+  }, []);
+
+  const allSkills = categories.flatMap((cat) =>
+    cat.skills.map((s) => ({ ...s, accent: cat.accent, id: cat.id }))
+  );
+
+  const [selectedCtg, setselectedCtg] = useState<string | "all">("all");
+  
+      const sorted = useMemo(() => {
+          const filtered =
+              selectedCtg === "all"
+                  ? allSkills
+                  : allSkills.filter(
+                      (item) => item.id === selectedCtg
+                  );
+  
+          return filtered
+      }, [selectedCtg]);
+
+
+
+  return (
+    <>
+      <section id="tools" className="   mx-auto px-6   py-10">
+        <div className="flex max-w-6xl mx-auto px-6  flex-row justify-between items-start w-full p-2">
+          <h2 className="text-lg lg:text-2xl font-bold primary-content">
+            Tools
+          </h2>
+        </div>
+
+        <div className="grid wrap pb-5  lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-4  m-auto group w-max" id="category-grid">
+          {categories.map((cat) => (
+            <div onClick={() => setselectedCtg(cat.id)}
+              key={cat.id}
+              className="card-tools group   hover:-rotate-6 hover:-translate-x-3 hover:-translate-y-3  reveal"
+              data-open="true"
+              style={{ "--accent": cat.accent } as React.CSSProperties}
+            >
+              <button className="card-head" aria-expanded="true">
+                <div
+                  className="ring"
+                  data-ring
+                  data-overall={cat.overall}
+                  data-accent={cat.accent}
+                >
+                  <span className="ring-val">{cat.overall}%</span>
                 </div>
+                <div className="card-title">
+                  <h3>
+                    <span
+                      className="icon"
+                      dangerouslySetInnerHTML={{ __html: cat.icon }}
+                    />
+                    {cat.title}
+                  </h3>
 
-                <div className="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-4  m-auto group w-max" id="category-grid">
-                    {categories.map((cat) => (
-                        <div
-                            key={cat.id}
-                            className="card-tools group  hover:-rotate-6 hover:-translate-x-3 hover:-translate-y-3  reveal"
-                            data-open="true"
-                            style={{ "--accent": cat.accent } as React.CSSProperties}
-                        >
-                            <button className="card-head" aria-expanded="true">
-                                <div
-                                    className="ring"
-                                    data-ring
-                                    data-overall={cat.overall}
-                                    data-accent={cat.accent}
-                                >
-                                    <span className="ring-val">{cat.overall}%</span>
-                                </div>
-                                <div className="card-title">
-                                    <h3>
-                                        <span
-                                            className="icon"
-                                            dangerouslySetInnerHTML={{ __html: cat.icon }}
-                                        />
-                                        {cat.title}
-                                    </h3>
-
-                                </div>
-                            </button>
-
-                            <div className="panel">
-                                <div className="panel-inner">
-                                    <div className="skill-list">
-                                        {cat.skills.map((s) => (
-                                            <div className="skill-row" key={s.name}>
-                                                <div className="top">
-                                                    <span className="name">{s.name}</span>
-                                                    <span className="pct">{s.pct}%</span>
-                                                </div>
-                                                <div className="bar-track">
-                                                    <div className="bar-fill" data-fill={s.pct} />
-                                                </div>
-                                            </div>
-                                        ))}
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    ))}
                 </div>
+              </button>
+
+     
+            </div>
+          ))}
+        </div>
+
+        <div className="flex transition-all  flex-wrap  px-6  gap-4 max-w-6xl m-auto" id="icon-grid">
+
+          <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 w-full gap-4 md:gap-10 lg:gap-4 pb-8">
+            {sorted.map((c) => (
+
+              <div key={c.name} className={`group relative flex ${selectedCtg === 'all'? `reveal`:``} flex-col items-center`}>
+                <div className="transition-transform duration-500 group-hover:-translate-y-1.5 group-hover:-translate-x-1.5 group-hover:-rotate-6">
+     <div
+                  className="ring wrap " data-ring
+                  data-overall={c.pct}
+                  data-accent={c.accent}
+                  style={{ "--accent": c.accent } as React.CSSProperties}
+                >
+                  <div
+                    className="h-8 w-8 bg-indigo-300 opacity-100 group-hover:opacity-0 transition-opacity duration-500 "
+                    style={{
+                      WebkitMaskImage: `url(https://cdn.simpleicons.org/${c.iconTitle}/000000)`,
+                      maskImage: `url(https://cdn.simpleicons.org/${c.iconTitle}/000000)`,
+                      WebkitMaskSize: "contain",
+                      maskSize: "contain",
+                      WebkitMaskRepeat: "no-repeat",
+                      maskRepeat: "no-repeat",
+                      WebkitMaskPosition: "center",
+                      maskPosition: "center",
+                    }}
+                  />
+                </div>
+                </div>
+           
+
+                <h3 className="text-center primary-content mt-2">{c.name}</h3>
+
+                <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-500 absolute top-5 left-1/3  z-10 pointer-events-none">
+                  <span className="text-lg font-black text-white py-0.5 rounded uppercase tracking-tighter">
+                    {c.pct}%
+                  </span>
+                </div>
+              </div>
 
 
-            </section>
 
-            <style>
-                {`  .wrap {
+            ))}
+          </div>
+
+
+
+        </div>
+
+      </section>
+
+      <style>
+        {`
+        .ring img {
+  filter: brightness(0.5) contrast(1.2);
+  opacity: 0.85;
+}
+
+ .ring:hover img {
+  filter: brightness(1) contrast(1);
+  opacity: 1.00;
+}
+        .wrap {
     --bg: #14161c;
     --surface: #1b1e26;
     --surface-2: #21242e;
@@ -400,8 +458,22 @@ export default function Tools() {
     .chevron {
       transition: none !important;
     }
-  }`}
-            </style>
-        </>
-    );
+  }
+  #icon-grid .ring {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto;
+}
+
+.ring img {
+  position: relative;
+  z-index: 1;
+  width: 26px;
+  height: 26px;
+  object-fit: contain;
+}
+  `}
+      </style>
+    </>
+  );
 }

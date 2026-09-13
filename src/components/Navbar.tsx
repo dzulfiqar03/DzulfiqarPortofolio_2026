@@ -1,4 +1,16 @@
+import { Moon, Sun } from "lucide-react";
+import { useEffect, useState } from "react";
+
 export default function Navbar() {
+
+    const [isDark, setIsDark] = useState(false)
+
+
+    useEffect(() => {
+        const currentTheme = isDark ? 'dark' : 'light';
+        document.documentElement.setAttribute('data-theme', currentTheme);
+        document.documentElement.classList.add('transition-colors');
+    }, [isDark]);
     return (
         <>
             <div className="w-full bg-slate-900/80 backdrop-blur-md border-b z-[100] fixed top-0 border-white/10 shadow-lg shadow-black/20">
@@ -28,6 +40,28 @@ export default function Navbar() {
                                     className="ml-2 rounded-lg bg-indigo-500 px-4 py-2 text-sm font-medium text-white transition-all duration-200 hover:bg-indigo-400">
                                     Contact
                                 </a>
+                            </li>
+                            <li>
+                                <button
+                                    onClick={() => setIsDark(!isDark)}
+                                    aria-label="Toggle dark mode"
+                                    aria-pressed={isDark}
+                                    className={`relative ml-3 inline-flex h-10 w-20 items-center rounded-full transition-colors duration-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 ${isDark
+                                            ? "bg-slate-700 focus-visible:ring-slate-400 focus-visible:ring-offset-slate-900"
+                                            : "bg-amber-200 focus-visible:ring-amber-400 focus-visible:ring-offset-slate-100"
+                                        }`}
+                                >
+                                    <span
+                                        className={`inline-flex h-8 w-8 transform items-center justify-center rounded-full shadow-md transition-transform duration-500 ease-in-out ${isDark ? "translate-x-8 bg-slate-900" : "-translate-x-1 bg-white"
+                                            }`}
+                                    >
+                                        {isDark ? (
+                                            <Moon className="h-4 w-4 text-slate-200" strokeWidth={2} />
+                                        ) : (
+                                            <Sun className="h-4 w-4 text-amber-500" strokeWidth={2} />
+                                        )}
+                                    </span>
+                                </button>
                             </li>
                         </ul>
 
