@@ -1,5 +1,4 @@
 import { ChevronDown } from "lucide-react";
-import FooterItem from "./FooterItem";
 import { categories } from "../resources/ToolsList"
 
 
