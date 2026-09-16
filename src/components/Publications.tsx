@@ -47,13 +47,63 @@ export default function Publications() {
             if (typingInterval) clearInterval(typingInterval);
         };
     }, []);
+
+
+    const progressRef = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        const target = progressRef.current;
+        if (!target) return;
+
+        let progress = 0;
+        let typingInterval2: ReturnType<typeof setInterval> | null = null;
+
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        if (typingInterval2) clearInterval(typingInterval2);
+
+                        typingInterval2 = setInterval(() => {
+                            progress++;
+                            target.style.width = `${progress}%`;
+
+                            if (progress >= NAME.length) {
+                                if (typingInterval2 !== null) clearInterval(typingInterval2);
+                            }
+                        }, 100);
+                    } else {
+                        if (typingInterval2) clearInterval(typingInterval2);
+                        progress = 0;
+                        target.style.width = '0%'; // hapus baris ini kalau tidak mau reset visual
+                    }
+                });
+            },
+            { threshold: 0.5 }
+        );
+
+        observer.observe(target);
+        return () => {
+            observer.disconnect();
+            if (typingInterval2) clearInterval(typingInterval2);
+        };
+    }, []);
     return (
         <>
             <section className=" rounded-lg fadeInUp-animation">
                 <div className=" flex flex-col justify-between max-w-6xl mx-auto px-6 items-center py-16 lg:py-18">
-                    <h1 className="text-4xl text-center gap-2 py-10  flex sm:flex-row flex-col sm:text-5xl lg:text-6xl font-semibold  primary-content leading-[1.1]">
-                        Latest   <span className="text-primary font-black" ref={elementNameRef}></span>
-                    </h1>
+                    <div className="flex flex-col w-full text-center py-10 gap-5 items-center">
+
+                        <h1 className="text-4xl text-center gap-2   flex sm:flex-row flex-col sm:text-5xl lg:text-6xl font-semibold  primary-content leading-[1.1]">
+                            Latest   <span className="text-primary font-black" ref={elementNameRef}></span>
+                        </h1>
+
+                        <div
+                            ref={progressRef}
+                            className=" h-1 w-0 bg-primary"
+                            aria-hidden="true"
+                        />
+                    </div>
                     <div className="grid grid-cols-1 mt-5 lg:grid-cols-[0.5fr_0.9fr] gap-5 lg:gap-5 items-center">
 
                         <div className="relative reveal w-[280px] h-[440px] ">
