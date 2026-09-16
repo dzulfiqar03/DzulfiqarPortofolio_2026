@@ -1,26 +1,74 @@
+import { useEffect, useRef } from "react";
+
 export default function Publications() {
+
+    const elementNameRef = useRef<HTMLSpanElement>(null);
+    const NAME = 'Publications'
+
+    useEffect(() => {
+        const target = elementNameRef.current;
+        if (!target) return;
+
+        let typingInterval: ReturnType<typeof setInterval> | null = null;
+
+        const startTyping = () => {
+            if (typingInterval) clearInterval(typingInterval);
+
+            let i = 0;
+            target.textContent = "";
+            typingInterval = setInterval(() => {
+                i++;
+                target.textContent = NAME.slice(0, i);
+
+                if (i >= NAME.length) {
+                    if (typingInterval) clearInterval(typingInterval);
+                }
+            }, 50);
+        };
+
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        startTyping();
+                    } else {
+                        if (typingInterval) clearInterval(typingInterval);
+                        target.textContent = "";
+                    }
+                });
+            },
+            { threshold: 0.5 }
+        );
+
+        observer.observe(target);
+
+        return () => {
+            observer.disconnect();
+            if (typingInterval) clearInterval(typingInterval);
+        };
+    }, []);
     return (
         <>
             <section className=" rounded-lg fadeInUp-animation">
-                <div className="max-w-6xl mx-auto px-6 py-16 lg:py-24">
-                    <h2 className="text-lg lg:text-2xl font-bold primary-content">
-                        Publications
-                    </h2>
+                <div className=" flex flex-col justify-between max-w-6xl mx-auto px-6 items-center py-16 lg:py-18">
+                    <h1 className="text-4xl text-center gap-2 py-10  flex sm:flex-row flex-col sm:text-5xl lg:text-6xl font-semibold  primary-content leading-[1.1]">
+                        Latest   <span className="text-primary font-black" ref={elementNameRef}></span>
+                    </h1>
                     <div className="grid grid-cols-1 mt-5 lg:grid-cols-[0.5fr_0.9fr] gap-5 lg:gap-5 items-center">
 
-                        <div className="relative w-[280px] h-[440px] ">
+                        <div className="relative reveal w-[280px] h-[440px] ">
 
                             <div className="relative w-full h-full rounded-[32px] bg-indigo-700 overflow-hidden">
                                 <iframe
                                     src="/docs/5206-5240.pdf"
                                     className="w-full h-full rounded-lg"
-                                    title="Laporan Magang"
+                                    title="Jurnal"
                                 />
                             </div>
                         </div>
 
 
-                        <div className="flex flex-col gap-y-8 order-2 lg:order-1">
+                        <div className="flex flex-col reveal gap-y-8 order-2 lg:order-1">
 
                             <div className="flex flex-col gap-y-4">
                                 <div className="flex items-center gap-3">

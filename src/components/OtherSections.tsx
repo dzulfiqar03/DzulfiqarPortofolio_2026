@@ -14,7 +14,7 @@ export default function OtherSection({
     return (
         <>
             <div
-                className="flex flex-col lg:flex-row gap-4 lg:gap-0 items-center justify-between rounded-lg bg-base-200 px-4 py-6 lg:px-10 lg:py-10 my-2 lg:m-0 fadeInUp-animation w-full">
+                className="flex flex-col lg:flex-row gap-4 lg:gap-0 items-center justify-between rounded-lg  px-4 py-6 lg:px-10 lg:py-10 my-2 lg:m-0 fadeInUp-animation w-full">
                 <div className="flex flex-col gap-2 justify-center text-center lg:text-start">
                     <h3 className="text-lg lg:text-2xl primary-content">Have any {title} in mind?</h3>
                     <p className="text-sm">I’m available for freelancing</p>

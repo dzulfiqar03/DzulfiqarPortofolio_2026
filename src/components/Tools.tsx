@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { categories } from "../resources/ToolsList"
 
 export default function Tools() {
@@ -75,101 +75,187 @@ export default function Tools() {
 
 
 
+  const toolsRef = useRef<(HTMLDivElement | null)[]>([]);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const el = entry.target as HTMLElement;
+          if (entry.isIntersecting) {
+            el.classList.remove('reveal');
+            void el.offsetWidth;
+            el.classList.add('reveal');
+          } else {
+            el.classList.remove('reveal');
+          }
+        });
+      },
+      { threshold: 0.5 }
+    );
+
+    toolsRef.current.forEach((el) => el && observer.observe(el));
+    return () => observer.disconnect();
+  }, [sorted]);
+
+  const elementNameRef = useRef<HTMLSpanElement>(null);
+  const NAME = 'Tools'
+
+  useEffect(() => {
+    const target = elementNameRef.current;
+    if (!target) return;
+
+    let typingInterval: ReturnType<typeof setInterval> | null = null;
+
+    const startTyping = () => {
+      if (typingInterval) clearInterval(typingInterval);
+
+      let i = 0;
+      target.textContent = "";
+      typingInterval = setInterval(() => {
+        i++;
+        target.textContent = NAME.slice(0, i);
+
+        if (i >= NAME.length) {
+          if (typingInterval) clearInterval(typingInterval);
+        }
+      }, 50);
+    };
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            startTyping();
+          } else {
+            if (typingInterval) clearInterval(typingInterval);
+            target.textContent = "";
+          }
+        });
+      },
+      { threshold: 0.5 }
+    );
+
+    observer.observe(target);
+
+    return () => {
+      observer.disconnect();
+      if (typingInterval) clearInterval(typingInterval);
+    };
+  }, []);
   return (
     <>
-      <section id="tools" className="   mx-auto px-6   py-10">
-        <div className="flex max-w-6xl mx-auto px-6  flex-row justify-between items-start w-full p-2">
-          <h2 className="text-lg lg:text-2xl font-bold primary-content">
-            Tools
-          </h2>
-        </div>
-
-        <div className="grid wrap pb-5  lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-4  m-auto group w-max" id="category-grid">
-          {categories.map((cat) => (
-            <div onClick={() => setselectedCtg(cat.id)}
-              key={cat.id}
-              className="card-tools group   hover:-rotate-6 hover:-translate-x-3 hover:-translate-y-3  reveal"
-              data-open="true"
-              style={{ "--accent": cat.accent } as React.CSSProperties}
-            >
-              <button className="card-head" aria-expanded="true">
-                <div
-                  className="ring"
-                  data-ring
-                  data-overall={cat.overall}
-                  data-accent={cat.accent}
-                >
-                  <span className="ring-val">{cat.overall}%</span>
-                </div>
-                <div className="card-title">
-                  <h3>
-                    <span
-                      className="icon"
-                      dangerouslySetInnerHTML={{ __html: cat.icon }}
-                    />
-                    {cat.title}
-                  </h3>
-
-                </div>
-              </button>
+      <section id="tools" className="   mx-auto px-6   pt-10">
+        <div className="flex flex-col justify-between items-center gap-3 w-full  p-2">
+          <h1 className="text-4xl text-center gap-2 py-10  flex sm:flex-row flex-col sm:text-5xl lg:text-6xl font-semibold  primary-content leading-[1.1]">
+            Latest   <span className="text-primary font-black" ref={elementNameRef}></span>
+          </h1>
 
 
-            </div>
-          ))}
-        </div>
-
-        <div className="flex transition-all  flex-wrap  px-6  gap-4 max-w-6xl m-auto" id="icon-grid">
-
-          <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 w-full gap-4 md:gap-10 lg:gap-4 pb-8">
-            {sorted.map((c) => (
-
-              <div key={c.name} className={`group relative flex ${selectedCtg === 'all' ? `reveal` : ``} flex-col items-center`}>
-                <div className="transition-transform duration-500 group-hover:-translate-y-1.5 group-hover:-translate-x-1.5 group-hover:-rotate-6">
+          <div className="grid wrap pb-5  lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-4  m-auto group w-max" id="category-grid">
+            {categories.map((cat) => (
+              <div onClick={() => setselectedCtg(cat.id)}
+                key={cat.id}
+                className="card-tools group   hover:-rotate-6 hover:-translate-x-3 hover:-translate-y-3  reveal"
+                data-open="true"
+                style={{ "--accent": cat.accent } as React.CSSProperties}
+              >
+                <button className="card-head" aria-expanded="true">
                   <div
-                    className="ring wrap " data-ring
-                    data-overall={c.pct}
-                    data-accent={c.accent}
-                    style={{ "--accent": c.accent } as React.CSSProperties}
+                    className="ring"
+                    data-ring
+                    data-overall={cat.overall}
+                    data-accent={cat.accent}
                   >
-                    <div
-                      className="h-8 w-8 bg-indigo-300 opacity-100 group-hover:opacity-0 transition-opacity duration-500 "
-                      style={{
-                        WebkitMaskImage: `url(https://cdn.simpleicons.org/${c.iconTitle}/000000)`,
-                        maskImage: `url(https://cdn.simpleicons.org/${c.iconTitle}/000000)`,
-                        WebkitMaskSize: "contain",
-                        maskSize: "contain",
-                        WebkitMaskRepeat: "no-repeat",
-                        maskRepeat: "no-repeat",
-                        WebkitMaskPosition: "center",
-                        maskPosition: "center",
-                      }}
-                    />
+                    <span className="ring-val">{cat.overall}%</span>
                   </div>
-                </div>
+                  <div className="card-title">
+                    <h3>
+                      <span
+                        className="icon"
+                        dangerouslySetInnerHTML={{ __html: cat.icon }}
+                      />
+                      {cat.title}
+                    </h3>
+
+                  </div>
+                </button>
 
 
-                <h3 className="text-center primary-content mt-2">{c.name}</h3>
-
-                <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-500 absolute top-5 left-1/3  z-10 pointer-events-none">
-                  <span className="text-lg font-black text-white py-0.5 rounded uppercase tracking-tighter">
-                    {c.pct}%
-                  </span>
-                </div>
               </div>
-
-
-
             ))}
           </div>
 
+          <div className="flex transition-all  flex-wrap  px-6  gap-4 max-w-6xl m-auto" id="icon-grid">
+
+            <div className="flex flex-wrap justify-center items-center gap-x-10 gap-y-8 px-6 max-w-6xl m-auto pb-8" id="icon-grid">
+              {sorted.map((c, i) => (
+                <div
+                  ref={(el) => { toolsRef.current[i] = el; }}
+                  key={c.name}
+                  className="group card-reveal relative flex flex-col items-center w-20"
+                  style={{ animationDelay: `${i * 100}ms` }}
+                >
+                  <div className="transition-transform duration-500 group-hover:-translate-y-1.5 group-hover:-translate-x-1.5 group-hover:-rotate-6">
+                    <div
+                      className="ring wrap " data-ring
+                      data-overall={c.pct}
+                      data-accent={c.accent}
+                      style={{ "--accent": c.accent } as React.CSSProperties}
+                    >
+                      <div
+                        className="h-8 w-8 bg-indigo-300 opacity-100 group-hover:opacity-0 transition-opacity duration-500"
+                        style={{
+                          WebkitMaskImage: `url(https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/${c.iconTitle}.svg)`,
+                          maskImage: `url(https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/${c.iconTitle}.svg)`,
+                          WebkitMaskSize: "contain",
+                          maskSize: "contain",
+                          WebkitMaskRepeat: "no-repeat",
+                          maskRepeat: "no-repeat",
+                          WebkitMaskPosition: "center",
+                          maskPosition: "center",
+                        }}
+                      />
+                    </div>
+                  </div>
+
+                  <h3 className="text-center primary-content mt-2">{c.name}</h3>
+
+                  <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-500 absolute top-5   z-10 pointer-events-none">
+                    <span className="text-lg font-black text-white py-0.5 rounded uppercase tracking-tighter">
+                      {c.pct}%
+                    </span>
+                  </div>
+                </div>
+              ))}
+            </div>
 
 
+
+
+          </div>
         </div>
-
       </section>
+
 
       <style>
         {`
+
+         @keyframes expFadeIn {
+        from { opacity: 0; transform: translateY(14px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+    .card-reveal {
+        opacity: 0;
+        transform: translateY(14px);
+    }
+    .card-reveal.reveal {
+        animation: expFadeIn 0.6s ease-out both;
+    }
+    @media (prefers-reduced-motion: reduce) {
+        .card-reveal { animation: none !important; opacity: 1 !important; transform: none !important; }
+    }
+        
         .ring img {
   filter: brightness(0.5) contrast(1.2);
   opacity: 0.85;

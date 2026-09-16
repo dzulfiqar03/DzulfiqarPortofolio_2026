@@ -3,7 +3,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import CardExperiences from "./CardExperiences";
 import { expList, SEGMENTS } from "../../resources/ExperiencesList"
 import OtherSection from "../OtherSections";
-
+import { motion } from "framer-motion";
 
 export default function Experiences() {
 
@@ -92,39 +92,109 @@ export default function Experiences() {
             behavior: "smooth",
         });
     };
-    return (
-        <div id="experience" className="flex flex-col max-w-6xl mx-auto px-6 gap-8 mt-2 scroll-mt-28">
-            <div className="flex sm:flex-row flex-col justify-between items-start w-full p-2">
-                <h2 className="text-lg lg:text-2xl font-bold primary-content">
-                    Latest Experience
-                </h2>
 
-                <div className="flex group transition-all duration-700 flex-wrap gap-2 bg-gray-100 rounded-full">
-                    {selectedYear !== 'all' && <button
-                        onClick={() => setSelectedYear("all")}
-                        className={`rounded-full border-white/40  border px-3 py-1 text-xs font-medium transition-colors text-black/50 bg-gray-50`}
-                    >
-                        Reset Filter
-                    </button>}
+
+    const elementNameRef = useRef<HTMLSpanElement>(null);
+    const NAME = 'Experiences'
+
+    useEffect(() => {
+        const target = elementNameRef.current;
+        if (!target) return;
+
+        let typingInterval: ReturnType<typeof setInterval> | null = null;
+
+        const startTyping = () => {
+            if (typingInterval) clearInterval(typingInterval);
+
+            let i = 0;
+            target.textContent = "";
+            typingInterval = setInterval(() => {
+                i++;
+                target.textContent = NAME.slice(0, i);
+
+                if (i >= NAME.length) {
+                    if (typingInterval) clearInterval(typingInterval);
+                }
+            }, 50);
+        };
+
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        startTyping();
+                    } else {
+                        // reset saat keluar viewport biar bisa retrigger
+                        if (typingInterval) clearInterval(typingInterval);
+                        target.textContent = "";
+                    }
+                });
+            },
+            { threshold: 0.5 }
+        );
+
+        observer.observe(target);
+
+        return () => {
+            observer.disconnect();
+            if (typingInterval) clearInterval(typingInterval);
+        };
+    }, []);
+
+    return (
+        <div id="experience" className="flex flex-col  gap-8 mt-2 scroll-mt-28">
+            <div className="flex flex-col justify-between items-center gap-3 w-full  p-2">
+                <h1 className="text-4xl text-center gap-2  flex sm:flex-row flex-col sm:text-5xl lg:text-6xl font-semibold  primary-content leading-[1.1]">
+                    Latest   <span className="text-primary font-black" ref={elementNameRef}></span>
+                </h1>
+
+                <div className="flex flex-wrap gap-2 bg-gray-100 rounded-full px-4 py-2">
+
                     <button
                         onClick={() => setSelectedYear("all")}
-                        className={`rounded-full border px-3 py-1 text-xs font-medium transition-colors ${selectedYear === "all"
-                            ? "border-white/40 btn btn-primary text-white"
-                            : "border-white/10 text-black/50 hover:border-white/25 hover:text-black"
+                        className={`relative px-3 py-1 text-sm font-medium transition-colors ${selectedYear === "all" ? "text-black font-bold" : "text-black/40 hover:text-black/70"
                             }`}
                     >
                         Semua
+                        {selectedYear === "all" && (
+                            <motion.div
+                                layoutId="year-underline"
+                                className={`absolute  px-3 py-1  left-0 right-0 top-0 h-full bg-indigo-600 rounded-full ${selectedYear === "all" ? "text-white font-bold" : "text-black/40 hover:text-black/70"}`}
+                                initial={false}
+                                animate={{ scaleX: [1, 1.3, 1] }}
+                                transition={{
+                                    layout: { type: "spring", stiffness: 500, damping: 30 },
+                                    scaleX: { duration: 0.35, times: [0, 0.4, 1], ease: "easeInOut" },
+                                }}
+                            >
+                                Semua
+                            </motion.div>
+                        )}
                     </button>
+
                     {years.map((year) => (
                         <button
                             key={year}
                             onClick={() => setSelectedYear(year)}
-                            className={`rounded-full border px-3 py-1 text-xs font-medium transition-colors ${selectedYear === year
-                                ? "border-white/40 btn btn-primary text-white"
-                                : "border-white/10 text-black/50 hover:border-white/25 hover:text-black"
+                            className={`relative px-3 py-1 text-sm font-medium  transition-colors ${selectedYear === year ? "text-white font-bold" : "text-black/40 hover:text-black/70"
                                 }`}
                         >
+
                             {year}
+                            {selectedYear === year && (
+                                <motion.div
+                                    layoutId="year-underline"
+                                    className="absolute left-0 right-0 top-0 z-0 h-full px-3 py-1 bg-indigo-600 rounded-full"
+                                    initial={false}
+                                    animate={{ translateX: [1, 1.3, 1] }}
+                                    transition={{
+                                        layout: { type: "spring", stiffness: 500, damping: 30 },
+                                        scaleX: { duration: 0.35, times: [0, 0.4, 1], ease: "easeInOut" },
+                                    }}
+                                >
+                                    {year}
+                                </motion.div>
+                            )}
                         </button>
                     ))}
                 </div>
@@ -137,7 +207,7 @@ export default function Experiences() {
                     </p>
                 ) : (
                     <div
-                        className="relative"
+                        className="relative mx-6"
                         onMouseEnter={() => setIsPaused(true)}
                         onMouseLeave={() => {
                             setIsPaused(false);
@@ -193,7 +263,7 @@ export default function Experiences() {
                                             </div>
 
                                             <div
-                                                className="mt-6"
+                                                className="mt-6 reveal"
                                                 style={{
                                                     animation: "expFadeIn 0.6s ease-out both",
                                                     animationDelay: `${i * 100}ms`,

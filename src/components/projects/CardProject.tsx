@@ -19,13 +19,16 @@ export default function CardProject({ item }: CardProps) {
         }, 6000);
         return () => clearInterval(slideInterval);
     }, [item.slidesProject]);
+
+
     return (
         <>
-            <div onClick={openDialog} className=" w-full group reveal sm:max-h-24 lg:max-h-none" >
+            <div onClick={openDialog} className=" w-full group  sm:max-h-24 lg:max-h-none" >
                 <div className="relative aspect-video w-full h-48 overflow-hidden rounded-t-lg">
                     {Object.entries(item.slidesProject).map(([key, s], idx) => (
                         <div
                             key={key}
+
                             className={`  h-full w-full transition-opacity duration-700 ${currentSlide % Object.keys(item.slidesProject).length === idx
                                 ? "opacity-100 z-10"
                                 : "opacity-0 z-0"
@@ -121,6 +124,7 @@ export default function CardProject({ item }: CardProps) {
                     </a>
                 </div>
             </dialog>
+
         </>
     )
 }

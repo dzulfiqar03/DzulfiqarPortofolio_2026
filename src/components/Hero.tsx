@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import MyProfile from '../assets/my-profile2.png';
 
 interface HeroProps {
@@ -6,6 +6,7 @@ interface HeroProps {
 }
 
 const NAME = 'Muhammad Dzulfiqar';
+
 
 export default function Hero({
     project = [],
@@ -16,7 +17,50 @@ export default function Hero({
     const differenceInTime = now.getTime() - targetDate.getTime();
     const age = Math.floor(differenceInTime / (1000 * 60 * 60 * 24 * 365));
     const prjLength = project.length;
+    const elementNameRef = useRef<HTMLSpanElement>(null);
 
+    useEffect(() => {
+        const target = elementNameRef.current;
+        if (!target) return;
+
+        let typingInterval: ReturnType<typeof setInterval> | null = null;
+
+        const startTyping = () => {
+            if (typingInterval) clearInterval(typingInterval);
+
+            let i = 0;
+            target.textContent = "";
+            typingInterval = setInterval(() => {
+                i++;
+                target.textContent = NAME.slice(0, i);
+
+                if (i >= NAME.length) {
+                    if (typingInterval) clearInterval(typingInterval);
+                }
+            }, 50);
+        };
+
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        startTyping();
+                    } else {
+                        if (typingInterval) clearInterval(typingInterval);
+                        target.textContent = "";
+                    }
+                });
+            },
+            { threshold: 0.5 }
+        );
+
+        observer.observe(target);
+
+        return () => {
+            observer.disconnect();
+            if (typingInterval) clearInterval(typingInterval);
+        };
+    }, []);
     useEffect(() => {
 
         const elementName = document.getElementById('myText');
@@ -27,16 +71,29 @@ export default function Hero({
         elementName.textContent = '';
         elementAge.textContent = '';
         elementProject.textContent = '';
+
         let i = 0;
         let projectCount = 0;
+        let ageCount = 0;
         const interval = setInterval(() => {
-            i++;
-            if (projectCount < prjLength) projectCount++;
-            elementName.textContent = NAME.slice(0, i);
-            elementAge.textContent = i.toString();
-            elementProject.textContent = prjLength.toString();
+            if (i <= NAME.length) {
+                elementName.textContent = NAME.slice(0, i);
+                i++;
+            }
 
-            if (i >= NAME.length && i >= age && projectCount >= prjLength) {
+
+            if (ageCount <= age) {
+                elementAge.textContent = ageCount.toString();
+
+                ageCount++;
+            }
+
+            if (projectCount <= prjLength) {
+                elementProject.textContent = projectCount.toString();
+                projectCount++;
+            }
+
+            if (i > NAME.length && ageCount > age && projectCount >= prjLength) {
                 clearInterval(interval);
             }
         }, 50);
@@ -55,19 +112,19 @@ export default function Hero({
                             <div className="flex flex-col gap-y-4">
                                 <p className="text-primary text-sm font-medium tracking-wide">Software Engineer · Data Analyst</p>
                                 <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold primary-content leading-[1.1]">
-                                    Hi, I'm <span id="myText" className="text-primary" aria-label={NAME}></span>
+                                    Hi, I'm <span id="myText" className="text-primary font-black" ref={elementNameRef}></span>
                                 </h1>
                                 <p className="primary-content/80 text-lg leading-relaxed text-justify">
                                     Fresh Graduate of Information Systems student at Telkom University Surabaya (GPA 3.88/4.00) with 1.5+ years of hands-on web
-development experience across Laravel, Next.js, and Vue.js internships. Independently designed, built, and deployed a full-stack Progressive
-Web App from requirements through production and Build a Project with Flutter Mobile Programming. Combines front-end and back-end
-development skills with a data-analysis background, translating business requirements into functional, user-tested web applications.
+                                    development experience across Laravel, Next.js, and Vue.js internships. Independently designed, built, and deployed a full-stack Progressive
+                                    Web App from requirements through production and Build a Project with Flutter Mobile Programming. Combines front-end and back-end
+                                    development skills with a data-analysis background, translating business requirements into functional, user-tested web applications.
                                 </p>
                             </div>
 
                             <div className="flex items-center divide-x divide-base-300 border-y border-base-300 py-5">
                                 <div className="flex flex-col pr-6">
-                                    <span id="myProject" className="text-2xl font-semibold primary-content">{project.length}</span>
+                                    <span id="myProject" className="text-2xl font-semibold primary-content">{prjLength}</span>
                                     <span className="text-sm text-base-content/60">Projects</span>
                                 </div>
                                 <div className="flex flex-col px-6">
@@ -108,7 +165,7 @@ development skills with a data-analysis background, translating business require
                             <div className="group relative w-56 sm:w-72 lg:w-80">
                                 <div className="absolute -inset-3 rounded-[2rem] bg-primary/10 rotate-6 transition-transform group-hover:-rotate-6 group-hover:-translate-x-3 group-hover:-translate-y-3"></div>
                                 <div id="images"
-                                    className="group relative rounded-[2rem] bg-indigo-800 overflow-hidden ring-1 ring-base-300 shadow-xl cursor-pointer">
+                                    className="group relative rounded-[2rem] bg-gradient-to-br from-indigo-800 to-purple-900 overflow-hidden ring-1 ring-base-300 shadow-xl cursor-pointer">
                                     <img className="w-full h-full object-cover transition-transform duration-500 ease-in-out hover:scale-105"
                                         src={MyProfile} alt="Muhammad Dzulfiqar" />
                                 </div>
