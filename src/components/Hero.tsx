@@ -123,7 +123,7 @@ export default function Hero({
     const [isTerminal, setIsTerminal] = useState<string>('gwd-page block');
 
     const typeCommand = useCallback(
-        async (id: number, fullCmd: string, entries: TermEntry[]): Promise<void> => {
+        async (id: number, fullCmd: string): Promise<void> => {
             const reduceMotion = reduceMotionRef.current;
             const update = (typed: string, showCaret: boolean) => {
                 setTerminal((prev) =>
@@ -180,7 +180,7 @@ export default function Hero({
         // git add .
         const addId = nextId();
         push({ id: addId, kind: "prompt", typed: "", showCaret: true });
-        await typeCommand(addId, "git add .", []);
+        await typeCommand(addId, "git add .");
         await sleep(reduceMotion ? 0 : 260);
         push({ id: nextId(), kind: "out", html: "&nbsp;" });
 
@@ -190,7 +190,6 @@ export default function Hero({
         await typeCommand(
             commitId,
             'git commit -m "Dzulfiqar Portofolio 2026"',
-            []
         );
         await sleep(reduceMotion ? 0 : 300);
         push({
@@ -209,7 +208,7 @@ export default function Hero({
         // git push
         const pushId = nextId();
         push({ id: pushId, kind: "prompt", typed: "", showCaret: true });
-        await typeCommand(pushId, "git push origin main", []);
+        await typeCommand(pushId, "git push origin main");
         await sleep(reduceMotion ? 0 : 260);
 
         const progressId = nextId();
@@ -252,33 +251,33 @@ export default function Hero({
         setIsProfile('block opacity-100 translate-y-0 transition-all duration-500 ease-in-out');
     }, [running, runTerminal]);
 
-   const containerRef = useRef<HTMLDivElement>(null);
-const hasPlayedRef = useRef<boolean>(false);
+    const containerRef = useRef<HTMLDivElement>(null);
+    const hasPlayedRef = useRef<boolean>(false);
 
-useEffect(() => {
-  const node = containerRef.current;
-  if (!node) return;
+    useEffect(() => {
+        const node = containerRef.current;
+        if (!node) return;
 
-  const observer = new IntersectionObserver(
-    (entries) => {
-      const entry = entries[0];
-      if (entry.isIntersecting && !hasPlayedRef.current) {
-        hasPlayedRef.current = true;
-        void playAll();
-        observer.disconnect(); // cukup sekali saja
-      }
-    },
-    { threshold: 0.3 } // trigger saat 30% elemen kelihatan
-  );
+        const observer = new IntersectionObserver(
+            (entries) => {
+                const entry = entries[0];
+                if (entry.isIntersecting && !hasPlayedRef.current) {
+                    hasPlayedRef.current = true;
+                    void playAll();
+                    observer.disconnect(); // cukup sekali saja
+                }
+            },
+            { threshold: 0.3 } // trigger saat 30% elemen kelihatan
+        );
 
-  observer.observe(node);
+        observer.observe(node);
 
-  return () => {
-    observer.disconnect();
-    cancelledRef.current = true;
-  };
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-}, []);
+        return () => {
+            observer.disconnect();
+            cancelledRef.current = true;
+        };
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
     return (
         <>
 
@@ -343,22 +342,22 @@ useEffect(() => {
                             <div className="group relative w-56 sm:w-72 lg:w-80">
                                 <div className={`absolute -inset-3 rounded-[2rem] bg-primary/10 rotate-6 transition-transform group-hover:-rotate-6 group-hover:-translate-x-3 group-hover:-translate-y-3`}></div>
 
-                                <div id="images" 
+                                <div id="images"
                                     className="group relative  rounded-[2rem] bg-gradient-to-br from-indigo-800 to-purple-900 overflow-hidden ring-1 ring-base-300 shadow-xl cursor-pointer">
 
-                                    <div ref={containerRef}  className={`   px-7 bg-base-200 ${isTerminal}`}>
+                                    <div ref={containerRef} className={`   px-7 bg-base-200 ${isTerminal}`}>
                                         <style>{CSS}</style>
 
-   
+
 
                                         <div className="window">
-      
+
 
                                             <div className="body-row">
-         
+
 
                                                 <div className="main-col">
-      
+
 
                                                     <div className="terminal py-7 lg:h-[550px] h-[400px]" ref={termRef}>
 
