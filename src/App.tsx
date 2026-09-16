@@ -34,6 +34,7 @@ function App() {
     };
   }, []);
 
+
   return (
     <>
       <div
@@ -58,6 +59,8 @@ function App() {
         <Footer />
       </div>
 
+  
+
       <style>{
         `
   html,
@@ -71,5 +74,6 @@ function App() {
     </>
   )
 }
+ 
 
 export default App

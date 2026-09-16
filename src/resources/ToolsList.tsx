@@ -24,7 +24,7 @@ export const categories: Category[] = [
     overall: 82,
     icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>',
     skills: [
-      { name: "HTML & CSS", pct: 90, iconTitle: 'html5' },
+      { name: "HTML", pct: 90, iconTitle: 'html5' },
       { name: "JavaScript", pct: 80, iconTitle: 'javascript' },
       { name: "Tailwind CSS", pct: 88, iconTitle: 'tailwindcss' },
       { name: "Bootstrap", pct: 85, iconTitle: 'bootstrap' },
