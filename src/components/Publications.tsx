@@ -106,9 +106,9 @@ export default function Publications() {
                     </div>
                     <div className="grid grid-cols-1 mt-5 lg:grid-cols-[0.5fr_0.9fr] gap-5 lg:gap-5 items-center">
 
-                        <div className="relative reveal w-[280px] h-[440px] ">
+                        <div className="relative reveal lg:w-[280px] w-full h-[440px] ">
 
-                            <div className="relative w-full h-full rounded-[32px] bg-indigo-700 overflow-hidden">
+                            <div className=" w-full h-full rounded-[32px] bg-indigo-700 overflow-hidden">
                                 <iframe
                                     src="/docs/5206-5240.pdf"
                                     className="w-full h-full rounded-lg"
