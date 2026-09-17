@@ -7,6 +7,7 @@ import Experiences from './components/experiences/Experiences'
 import Navbar from './components/Navbar'
 import Tools from './components/Tools'
 import Publications from './components/Publications';
+import { ChevronUpIcon } from 'lucide-react';
 function App() {
   const progressRef = useRef<HTMLDivElement>(null);
   const [height, setHeight] = useState(0)
@@ -35,6 +36,12 @@ function App() {
   }, []);
 
 
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth' // Membuat efek transisi gulir yang halus
+    });
+  };
   return (
     <>
       <div
@@ -59,7 +66,17 @@ function App() {
         <Footer />
       </div>
 
-  
+
+
+      <div className={`${height === 0 ? 'hidden bottom-0 right-0 ' : 'fixed bottom-6 right-6 '} transition-transform duration-500 ease-in-out z-50 flex flex-col items-end`}>
+        <button
+          onClick={() => scrollToTop()}
+          className={`flex items-center justify-center w-14 h-14 bg-indigo-600 text-white rounded-full shadow-2xl hover:bg-blue-700 focus:outline-none transition-transform duration-300 `}
+          aria-label="Floating Action Button"
+        >
+          <ChevronUpIcon />
+        </button>
+      </div>
 
       <style>{
         `
@@ -74,6 +91,6 @@ function App() {
     </>
   )
 }
- 
+
 
 export default App

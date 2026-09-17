@@ -1,15 +1,40 @@
 import { Moon, Sun } from "lucide-react";
 import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
+
+
+const navbar = [
+    {
+        title: 'Home',
+        link: '#hero'
+    },
+    {
+        title: 'Project',
+        link: '#projects'
+    },
+    {
+        title: 'Experience',
+        link: '#experience'
+    },
+    {
+        title: 'Contacts',
+        link: '#footer'
+    }
+
+]
+
 
 export default function Navbar() {
 
     const [isDark, setIsDark] = useState(false)
 
+    const [isActive, setIsActive] = useState<string>('Home')
 
     useEffect(() => {
         const currentTheme = isDark ? 'dark' : 'light';
         document.documentElement.setAttribute('data-theme', currentTheme);
         document.documentElement.classList.add('transition-colors');
+        document.documentElement.classList.toggle('dark', currentTheme === 'dark');
     }, [isDark]);
     return (
         <>
@@ -23,32 +48,47 @@ export default function Navbar() {
 
                     <div className="flex-none">
                         <ul className="menu menu-horizontal hidden lg:flex items-center gap-1 px-1">
-                            <li>
-                                <a href="#projects"
-                                    className="rounded-lg px-4 py-2 text-sm font-medium text-slate-300 transition-all duration-200 hover:text-white hover:bg-white/5">
-                                    Project
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#experience"
-                                    className="rounded-lg px-4 py-2 text-sm font-medium text-slate-300 transition-all duration-200 hover:text-white hover:bg-white/5">
-                                    Experience
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#footer"
-                                    className="ml-2 rounded-lg bg-indigo-500 px-4 py-2 text-sm font-medium text-white transition-all duration-200 hover:bg-indigo-400">
-                                    Contact
-                                </a>
-                            </li>
+
+                            <div className="flex flex-wrap gap-2 bg-gray-100 rounded-full ">
+
+
+                                {navbar.map((nav) => (
+                                    <a
+                                        key={nav.title}
+                                        onClick={() => setIsActive(nav.title)}
+                                        href={nav.link}
+                                        className={`relative px-3 py-1 text-sm font-medium  transition-colors ${isActive === nav.title ? "text-white font-bold" : "text-black/40 hover:text-black/70"
+                                            }`}
+                                    >
+
+                                        {nav.title}
+                                        {isActive === nav.title && (
+                                            <motion.div
+                                                layoutId="nav-underline"
+                                                className="absolute -left-1 right-0 top-0 z-0 h-full px-3 py-1 bg-indigo-600 rounded-full"
+                                                initial={false}
+                                                animate={{ translateX: [1, 1.3, 1] }}
+                                                transition={{
+                                                    layout: { type: "spring", stiffness: 500, damping: 30 },
+                                                    scaleX: { duration: 0.35, times: [0, 0.4, 1], ease: "easeInOut" },
+                                                }}
+                                            >
+                                                {nav.title}
+                                            </motion.div>
+                                        )}
+                                    </a>
+                                ))}
+                            </div>
+
+
                             <li>
                                 <button
                                     onClick={() => setIsDark(!isDark)}
                                     aria-label="Toggle dark mode"
                                     aria-pressed={isDark}
                                     className={`relative ml-3 inline-flex h-10 w-20 items-center rounded-full transition-colors duration-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 ${isDark
-                                            ? "bg-slate-700 focus-visible:ring-slate-400 focus-visible:ring-offset-slate-900"
-                                            : "bg-amber-200 focus-visible:ring-amber-400 focus-visible:ring-offset-slate-100"
+                                        ? "bg-slate-700 focus-visible:ring-slate-400 focus-visible:ring-offset-slate-900"
+                                        : "bg-amber-200 focus-visible:ring-amber-400 focus-visible:ring-offset-slate-100"
                                         }`}
                                 >
                                     <span
@@ -84,12 +124,16 @@ export default function Navbar() {
             </div>
 
 
+
+
             <style>{`
   html {
     scroll-behavior: smooth;
     scroll-padding-top: 80px;
   }
 `}</style>
+
+
         </>
     )
 }

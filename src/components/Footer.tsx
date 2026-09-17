@@ -28,7 +28,7 @@ export default function Footer() {
   const loop = [...categories, ...categories]
     return (
         <>
-         <footer className="relative bg-base-200 py-20 px-6 overflow-hidden">
+         <footer id="footer" className="relative bg-base-200 py-20 px-6 overflow-hidden">
       <style>{`
         @keyframes marquee-scroll {
           from { transform: translateX(0); }
@@ -50,7 +50,7 @@ export default function Footer() {
       </div>
 
       <div className="max-w-3xl mx-auto text-center">
-        <h2 className="text-4xl sm:text-5xl font-extrabold tracking-tight text-slate-900">
+        <h2 className="text-4xl sm:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white">
           Let&apos;s{" "}
           <span className="bg-gradient-to-r from-indigo-400 to-indigo-900 bg-clip-text text-transparent">
             Collaborate

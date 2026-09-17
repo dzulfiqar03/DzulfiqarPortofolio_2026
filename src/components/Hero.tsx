@@ -281,7 +281,7 @@ export default function Hero({
     return (
         <>
 
-            <section className="bg-base-200 rounded-lg fadeInUp-animation">
+            <section id='hero' className="bg-base-200 rounded-lg fadeInUp-animation">
                 <div className="max-w-6xl mx-auto px-6 py-16 lg:py-30">
                     <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-14 lg:gap-10 items-center">
 
@@ -343,7 +343,7 @@ export default function Hero({
                                 <div className={`absolute -inset-3 rounded-[2rem] bg-primary/10 rotate-6 transition-transform group-hover:-rotate-6 group-hover:-translate-x-3 group-hover:-translate-y-3`}></div>
 
                                 <div id="images"
-                                    className="group relative  rounded-[2rem] bg-gradient-to-br from-indigo-800 to-purple-900 overflow-hidden ring-1 ring-base-300 shadow-xl cursor-pointer">
+                                    className="group relative  rounded-[2rem] bg-gradient-to-br from-indigo-300 transition-colors to-purple-200 dark:from-indigo-800 dark:to-purple-900 overflow-hidden ring-1 ring-base-300 shadow-xl cursor-pointer">
 
                                     <div ref={containerRef} className={`   px-7 bg-base-200 ${isTerminal}`}>
                                         <style>{CSS}</style>
